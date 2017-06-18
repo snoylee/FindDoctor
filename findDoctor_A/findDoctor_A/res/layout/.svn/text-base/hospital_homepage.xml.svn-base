@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/relative_top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/top_bar_background"
+        android:gravity="center_vertical" >
+        
+
+        <TextView
+            android:id="@+id/tv_topbar_center_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="医院主页"
+            android:textColor="@color/white"
+            android:textSize="@dimen/top_bar_center_text_size" />
+
+        <Button
+            android:id="@+id/ib_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:background="@drawable/back_selector"
+            android:gravity="center"
+            android:text="  返回"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/ib_hosp_collection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="8dp"
+            android:background="@drawable/post_selector"
+            android:gravity="center"
+            android:text="收藏"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+
+    <ScrollView android:layout_width="match_parent"
+        android:descendantFocusability="blocksDescendants"
+        android:layout_height="match_parent">
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp" >
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="wrap_content"
+            android:layout_height="95dp"
+            android:layout_weight="2"
+            android:background="@drawable/hospital_home_pic" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="10"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tv_homepage_hospname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/common_text_size"
+                 android:singleLine="true"
+                 android:ellipsize="end"
+                android:text="医院" />
+
+            <TextView
+                android:id="@+id/tv_homepage_hospclass"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="三级甲等"
+                android:textColor="@color/common_green"
+                android:textSize="@dimen/common_text_size_small"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/tv_progress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="电话："
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/common_text_size_small" />
+
+                <TextView
+                    android:id="@+id/tv_homepage_tel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/common_text_size_small" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="地址："
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/common_text_size_small" />
+
+                <TextView
+                    android:id="@+id/tv_homepage_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:singleLine="true"
+                    android:ellipsize="end"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/common_text_size_small" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bottom_line" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:text="简介"
+        android:textSize="@dimen/common_text_size"
+        android:textColor="@color/common_green" />
+
+    <TextView
+        android:id="@+id/tv_hosp_introduce"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="10dp"
+        android:ellipsize="end" />
+    
+ <ImageView
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bottom_line" />
+
+    <com.guangyi.finddoctor.spicalHosptalHome.MyLinearLayoutForListAdapter	android:id="@+id/mylinear_way1"
+        android:descendantFocusability="blocksDescendants"
+    	        android:layout_width="fill_parent"	android:layout_height="wrap_content"
+    	        android:orientation="vertical"/>
+    
+    </LinearLayout>
+</ScrollView>
+    
+</LinearLayout>

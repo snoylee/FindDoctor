@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">找医生</string>
+    <string name="person_center_push_message">消息推送</string>
+    <string name="conntimeout">连接服务器超时</string>
+    <string name="soconntimeout">请求数据超时</string>
+    <string name="network_preoblem">服务器连接失败</string>
+
+    
+    
+    <string name="pull_to_refresh_pull_last_time">上次更新时间：</string>
+    <string name="pull_to_refresh_pull_label">下拉加载</string>
+    <string name="pull_to_refresh_release_label">松开后加载</string>
+    <string name="pull_to_refresh_refreshing_label">正在加载\u2026</string>
+    <string name="pull_to_refresh_footer_release_label">松开后加载</string>
+    <string name="pull_to_refresh_footer_pull_label">上拉加载更多</string>
+    <string name="pull_to_refresh_footer_refreshing_label">正在加载\u2026</string>
+    
+    
+<!--     SharedPreferences -->
+     <string name="gspState">gspState</string>  <!--gps是否开启,0,1 关闭，开启，整形，判断第一次是否开启或关闭-->
+     <string name="gspSetting">gspSetting</string>  <!--// 0开始设置 1设置成功 2设置失败,首页第一次设置gps的提示-->
+     <string name="sendType">sendType</string>  <!--咨询,评价 0:默认不需要审核，1：回复评价审核打开 -->
+    
+<!--     支付宝 -->
+    
+    <string name="settings">设置</string>
+	<string name="update">升级</string>
+	<string name="check_update">查询升级</string>
+	<string name="download">下载</string>
+	<string name="install">安装</string>
+	<string name="result">返回值</string>
+	<string name="launch_preferences">启动设置</string>
+	<string name="preference_attributes">属性设置</string>
+	<string name="global_preference">全局设置</string>
+	<string name="global_preference_summary">安全支付服务和DEMO的通用设置</string>
+	<string name="remote_call_failed">Failure calling remote service</string>
+	<string-array name="launch_list_entries">
+		<item>外部商户订单</item>
+		<item>远程订单</item>
+	</string-array>
+	<string name="order_mode">订单模式</string>
+	<string name="popup_result">显示返回值</string>
+	
+	<string name="result_status_title">Result Status : </string>
+	<string name="memo_title">Memo : </string>
+	<string name="result_title">Result : </string>
+	<string name="check_result_title">Check Sign Result : </string>
+	<string name="external_token_title">External Token</string>
+	<string name="trade_number_title">Trade Number</string>
+	<string name="payPhaseId_title">Pay PhaseId</string>
+	<string name="taobao_pay">订单支付</string>
+	<string name="taobao_add">增加订单</string>
+	<string name="taobao_reset">订单重置</string>
+	<string name="start_order">打开订单页面</string>
+	<string name="not_null">不能为空</string>
+	<string name="extern_partner">外部商户订单</string>
+	
+	
+	
+	<string name="user_id">USER ID</string>
+	<string name="btn_logon">快速登录</string>
+	<string name="data_auth">数据授权</string>
+	<string name="name">姓名</string>
+	<string name="gender">性别</string>
+	<string name="certinfo">证件</string>
+	<string name="email">邮箱</string>
+	<string name="mobile">电话</string>
+	<string name="address">地址</string>
+	<string name="logonId">LogonId</string>
+	
+	
+	
+<!-- 	更新管理 -->
+	<string name="soft_update_no">已经是最新版本</string>
+    <string name="soft_update_title">软件更新</string>
+    <string name="soft_update_info">检测到新版本，立即更新吗</string>
+    <string name="soft_update_updatebtn">更新</string>
+    <string name="soft_update_later">稍后更新</string>
+    <string name="soft_updating">正在更新</string>
+    <string name="soft_update_cancel">取消</string>
+    
+    
+    
+    
+    
+        <string name="login">登录</string>
+    <string name="text_hint">Channel绑定信息：</string>
+    <string name="text_btn_init">登陆百度账号初始化Channel</string>
+    <string name="text_btn_init1">更换百度账号初始化Channel</string>
+    <string name="text_btn_rich">查看富媒体消息</string>
+    <string name="text_btn_initAK">无账号初始化Channel</string>
+    <string name="text_btn_setTags">设置标签</string>
+    <string name="text_btn_delTags">删除标签</string>
+    <string name="text_btn_senior">高级功能</string>
+    <string name="text_btn_set">设置</string>
+    <string name="text_media_title">富媒体消息列表</string>
+    <string name="media">Rich Media</string>
+    <string name="custom_text_hint">用户自定义打开的Activity</string>
+    <string name="tags_hint">请输入多个标签，以英文逗号隔开</string>
+	
+
+</resources>

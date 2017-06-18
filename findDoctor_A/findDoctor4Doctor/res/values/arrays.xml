@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="person_center_arry">
+        <item >意见反馈</item>
+        <item >精彩推荐</item>
+        <item >版本信息</item>
+        <item >声明</item>
+    </string-array>
+    
+    <string-array name="main_grid_item_arry">
+        <item >预约挂号</item>
+        <item >在线咨询</item>
+        <item >自助服务</item>
+        <item >个人中心</item>
+    </string-array>
+    
+    <string-array name="online_ask_grid_item_arry">
+        <item >儿科</item>
+        <item >妇产科</item>
+        <item >内科</item>
+        <item >眼科</item>
+        <item >外科</item>
+        <item >男科</item>
+        <item >耳科</item>
+        <item >传染科</item>
+        <item >牙科</item>
+    </string-array>
+    
+        <string-array name="online_ask_grid_item_arry_depid">
+        <item >42b94aa5-8668-401d-95a6-5de84068b4da</item>
+        <item >1cab635b-301b-4cd6-b3f6-7e873c197b9a</item>
+        <item >3f24b98f-80d6-41c1-8008-26a596ff104f</item>
+        <item >7626e499-7304-489d-a0d4-91a3d6639856</item>
+        <item >ca6c9258-9bff-488e-81f0-e3f22979a365</item>
+        <item >9bd82f8a-f638-4909-87cf-8c2e456ff2cd</item>
+        <item >745edc78-1046-4ab4-a0ab-f2a85c7b1179</item>
+        <item >ced46295-c265-4148-884b-2c1eb7827fa9</item>
+        <item >03efcd27-3087-4000-a0b8-775863460d8a</item>
+    </string-array>
+    
+    <string-array name="self_service_grid_item_arry">
+        <item >症状自查</item>
+        <item >疾病库</item>
+        <item >附近医院</item>
+        <item >附近药店</item>
+        <item >化验检查</item>
+        
+    </string-array>
+</resources>

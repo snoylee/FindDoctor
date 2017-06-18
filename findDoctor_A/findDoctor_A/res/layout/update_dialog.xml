@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>  
+<RelativeLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"  
+    android:layout_width="match_parent"  
+    android:layout_height="wrap_content"  
+    android:background="@color/transparent"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    >
+
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/alert_dialog_bg"
+    android:orientation="vertical"
+    android:gravity="center_vertical"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp" >
+    
+    <TextView
+            android:id="@+id/tv_update_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="找医生发现有新版本需要更新"
+            android:gravity="center"
+            android:textSize="20sp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="15dp"
+        android:gravity="center_vertical"
+        android:layout_gravity="center_vertical" >
+
+        <TextView
+            android:layout_alignParentLeft="true"
+            android:id="@+id/tv_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp" />
+    </RelativeLayout>
+  
+      
+      <LinearLayout
+          android:layout_width="match_parent"  
+          android:layout_height="wrap_content"
+          android:orientation="horizontal"   >
+        <Button  
+            android:id="@+id/btn_cancle"  
+            android:layout_width="0dp"  
+            android:layout_weight="1"
+            android:layout_height="wrap_content"  
+            android:paddingTop="10dp" 
+            android:paddingBottom="10dp" 
+            android:gravity="center"  
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:layout_marginRight="5dp"
+            android:background="#3EA928"
+            android:text="立即更新"    >  
+        </Button>  
+        
+         <Button  
+             android:layout_marginLeft="5dp"
+            android:id="@+id/btn_ok"  
+             android:layout_width="0dp"  
+            android:layout_weight="1"
+            android:layout_height="wrap_content"  
+            android:paddingTop="10dp" 
+            android:paddingBottom="10dp" 
+            android:background="#E8E8E8"
+            android:gravity="center"  
+            android:textSize="18sp"
+            android:textColor="@color/grey"
+            android:text="以后再说"    >  
+        </Button>  
+        
+         </LinearLayout>
+  
+</LinearLayout>  
+
+</RelativeLayout>

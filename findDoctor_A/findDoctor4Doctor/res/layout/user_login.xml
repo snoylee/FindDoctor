@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:id="@+id/relative_top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/top_bar_background"
+        android:gravity="center_vertical" >
+
+        <TextView
+            android:id="@+id/tv_topbar_center_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="登录"
+            android:textColor="@color/white"
+            android:textSize="@dimen/top_bar_center_text_size" />
+
+        <Button
+            android:id="@+id/ib_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:background="@drawable/back_selector"
+            android:gravity="center"
+            android:text="返回"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/relative_top_bar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="@dimen/comm_padding_left_right"
+        android:layout_marginRight="@dimen/comm_padding_left_right"
+        android:layout_marginTop="@dimen/comm_padding_top_bottom"
+        android:orientation="vertical" >
+
+        <EditText
+            android:id="@+id/et_user_phone"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="@drawable/ic_preference_first_normal"
+            android:gravity="center_vertical"
+            android:hint="请输入手机号"
+            android:inputType="phone"
+            android:padding="@dimen/comm_padding_textView_text" >
+        </EditText>
+
+        <EditText
+            android:id="@+id/et_user_pwd"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="@drawable/ic_preference_last_normal"
+            android:hint="密码(长度为6-10位)"
+            android:maxLength="10"
+            android:inputType="textPassword"
+            android:padding="@dimen/comm_padding_textView_text" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/linearLayout1"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/comm_padding_left_right"
+        android:layout_marginRight="@dimen/comm_padding_left_right"
+        android:layout_marginTop="@dimen/comm_padding_top_bottom"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/ib_user_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_big_selector"
+            android:gravity="center"
+            android:text="登录"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+        
+        <TextView
+             android:id="@+id/tv_forget"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_gravity="right"
+             android:layout_marginTop="@dimen/comm_padding_left_right"
+             android:gravity="center"
+             android:textSize="18sp"
+             android:text="忘记密码?"
+             android:textColor="@color/common_green" />
+
+  
+
+    </LinearLayout>
+
+</RelativeLayout>

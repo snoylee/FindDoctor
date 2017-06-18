@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     android:orientation="vertical"
+    >
+<RelativeLayout
+    android:id="@+id/relative_top_bar"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="@drawable/top_bar_background"
+    android:layout_alignParentTop="true"
+    android:gravity="center_vertical" >
+
+    <TextView
+        android:id="@+id/tv_topbar_center_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="化验详情"
+        android:textColor="@color/white"
+        android:textSize="@dimen/top_bar_center_text_size" />
+
+      <Button
+            android:id="@+id/ib_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:text="  返回"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:background="@drawable/back_selector" />
+    
+</RelativeLayout>
+<ScrollView 
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+            <TextView
+            android:id="@+id/tv_disease_name"    
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/common_text_size"
+            android:padding="10dp"
+            android:text="介绍" />
+            <TextView
+            android:id="@+id/tv_ddisease_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/common_text_size_small"
+            android:padding="10dp"
+            android:text="" />
+        </LinearLayout>
+    
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+        <ToggleButton
+            android:id="@+id/toggle_pathogen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left|center_vertical"
+            android:background="@drawable/img1"
+            android:padding="10dp"
+            android:checked="true"
+            android:textColor="@color/black"
+            android:textSize="@dimen/common_text_size"
+            android:textOn="正常值"
+            android:textOff="正常值" />
+
+        <TextView
+            android:id="@+id/tv_pathogen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:padding="10dp"
+            android:textSize="@dimen/common_text_size_small"
+            android:text="" />
+    
+    </LinearLayout>
+    
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+        <ToggleButton
+            android:textOn="临床意义"
+            android:textOff="临床意义"
+            android:id="@+id/toggle_symptom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/img1"
+            android:textSize="@dimen/common_text_size"
+            android:checked="true"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:gravity="left|center_vertical" />
+
+        <TextView
+            android:id="@+id/tv_symptom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:padding="10dp"
+            android:textSize="@dimen/common_text_size_small"
+            android:text="" />
+    </LinearLayout>
+    
+
+
+    
+ 
+    
+        <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+        <ToggleButton
+            android:textOn="注意事项"
+            android:textOff="注意事项"
+            android:id="@+id/toggle_treatment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/img1"
+            android:checked="true"
+            android:textColor="@color/black"
+            android:textSize="@dimen/common_text_size"
+            android:padding="10dp"
+            android:gravity="left|center_vertical"
+             />
+
+        <TextView
+            android:id="@+id/tv_treatment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:textSize="@dimen/common_text_size_small"
+            android:padding="10dp"
+            android:text="" />
+    
+    </LinearLayout>
+    
+     <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+        <ToggleButton
+            android:textOn="相关疾病"
+            android:textOff="相关疾病"
+            android:id="@+id/toggle_drug"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/img1"
+            android:textSize="@dimen/common_text_size"
+            android:checked="true"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:gravity="left|center_vertical" />
+
+        <TextView
+            android:id="@+id/tv_drug"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:textSize="@dimen/common_text_size_small"
+            android:padding="10dp"
+            android:text="" />
+    
+    </LinearLayout>
+            
+</LinearLayout>
+
+</ScrollView>
+
+</LinearLayout>

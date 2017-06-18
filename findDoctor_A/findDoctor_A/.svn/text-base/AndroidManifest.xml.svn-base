@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.guangyi.finddoctor.activity"
+    android:versionCode="22"
+    android:versionName="V1.0.8" >
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="17" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES"/>
+    <uses-permission android:name="android.permission.LocationManager.NETWORK_PROVIDER"/>
+    <uses-permission android:name="android.permission.RESTART_PACKAGES"/>  
+    <uses-permission android:name="android.permission.WAKE_LOCK"></uses-permission>
+    
+    <!-- Push service 运行需要的权限 -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />  
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    
+    <!-- for log. -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER"/>
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
+    
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    
+    
+    <application
+        android:name="com.guangyi.finddoctor.application.FindDoctorApplication"
+        android:icon="@drawable/icon"
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.Light.NoTitleBar" >
+        <activity
+            android:name="com.guangyi.finddoctor.activity.WelcomeActivity"
+            android:label="@string/app_name" 
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+   
+<!--  com.guangyi.finddoctor.activity    -->
+<activity android:name="com.guangyi.finddoctor.activity.MainActivity"
+    android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+<activity android:name="com.guangyi.finddoctor.activity.MainSearchActivity"
+            android:screenOrientation="portrait" />
+<activity android:name="com.guangyi.finddoctor.activity.BannerDetail"
+            android:screenOrientation="portrait" />
+
+
+
+<!-- com.guangyi.finddoctor.custview -->
+
+<activity android:name="com.guangyi.finddoctor.custview.SelectPicActivity" 
+            android:screenOrientation="portrait"/>
+
+
+<!-- com.guangyi.finddoctor.hospitalRegister -->
+
+<activity android:name="com.guangyi.finddoctor.hospitalRegister.ChooseCityActivity" 
+            android:screenOrientation="portrait"/>
+<activity android:name="com.guangyi.finddoctor.hospitalRegister.ChooseNextCityActivity" 
+            android:screenOrientation="portrait"/>
+<activity android:name="com.guangyi.finddoctor.hospitalRegister.ChooseDepartmentActivity" 
+            android:screenOrientation="portrait"/>
+<activity android:name="com.guangyi.finddoctor.hospitalRegister.ChooseHospitalActivity" 
+            android:screenOrientation="portrait"/>
+<activity android:name="com.guangyi.finddoctor.hospitalRegister.DoctorHomeActivity" 
+            android:screenOrientation="portrait"/>
+<activity android:name="com.guangyi.finddoctor.hospitalRegister.DoctorListActivity" 
+            android:screenOrientation="portrait"/>
+<activity android:name="com.guangyi.finddoctor.hospitalRegister.DoctorTimeListActivity" 
+            android:screenOrientation="portrait"/>
+<activity android:name="com.guangyi.finddoctor.hospitalRegister.DoctorTimeListNoActionActivity" 
+            android:screenOrientation="portrait"/>
+<activity android:name="com.guangyi.finddoctor.hospitalRegister.HospitalRegisterConfirmOrder" 
+            android:screenOrientation="portrait"/>
+<activity android:name="com.guangyi.finddoctor.hospitalRegister.HospitalRegisterPost" 
+            android:screenOrientation="portrait"/>
+<activity android:name="com.guangyi.finddoctor.hospitalRegister.DoctorTimeDialogActivity" 
+    android:theme="@style/Translucent_NoTitle"
+            android:screenOrientation="portrait"/>
+
+<activity android:name="com.guangyi.finddoctor.hospitalRegister.DoctorTimeDialogNoActionActivity" 
+    android:theme="@style/Translucent_NoTitle"
+            android:screenOrientation="portrait"/>
+<activity android:name="com.guangyi.finddoctor.hospitalRegister.HospitalRegisterRule" 
+    android:theme="@style/Translucent_NoTitle"
+            android:screenOrientation="portrait"/>
+
+
+
+
+<!-- com.guangyi.finddoctor.onlineAsk -->
+<activity android:name="com.guangyi.finddoctor.onlineAsk.OnLineAddConsultInfo" 
+            android:screenOrientation="portrait"
+            android:exported="true"/>
+<activity android:name="com.guangyi.finddoctor.onlineAsk.OnLineAddConsultInfoForChart" 
+            android:screenOrientation="portrait">
+<intent-filter>
+<action android:name=""/>
+</intent-filter>
+</activity>
+<activity android:name="com.guangyi.finddoctor.onlineAsk.OnlineConfirmOrder" 
+            android:screenOrientation="portrait"/>
+<activity android:name="com.guangyi.finddoctor.onlineAsk.OnlineChatActivity" 
+    android:windowSoftInputMode="stateVisible|adjustPan"
+            android:screenOrientation="portrait"/>
+<activity android:name="com.guangyi.finddoctor.onlineAsk.OnLineDoctorList" 
+            android:screenOrientation="portrait"/>
+<activity android:name="com.guangyi.finddoctor.onlineAsk.OnLineDoctorMessage" 
+            android:screenOrientation="portrait"/>
+<activity android:name="com.guangyi.finddoctor.onlineAsk.OnLineDoctorTimeListActivity" 
+            android:screenOrientation="portrait"/>
+        
+<!-- com.guangyi.finddoctor.personCenter -->
+<!-- 新添加的两个，专门针对解决修改问诊人的界面的城市选择请处理的 -->
+<activity android:name="com.guangyi.finddoctor.personCenter.PChooseCityActivity" 
+            android:screenOrientation="portrait"/>
+<activity android:name="com.guangyi.finddoctor.personCenter.PChooseNextCityActivity" 
+            android:screenOrientation="portrait"/>
+
+
+
+<activity android:name="com.guangyi.finddoctor.personCenter.AddPatientActivity" 
+            android:screenOrientation="portrait"/>
+<activity android:name="com.guangyi.finddoctor.personCenter.AssessActivity" 
+            android:screenOrientation="portrait"/>
+<activity android:name="com.guangyi.finddoctor.personCenter.CommonPatientActivity" 
+            android:screenOrientation="portrait"/>
+<activity android:name="com.guangyi.finddoctor.personCenter.EditionActivity" 
+            android:screenOrientation="portrait"/>
+<activity android:name="com.guangyi.finddoctor.personCenter.DeclareActivity" 
+            android:screenOrientation="portrait"/>
+<activity android:name="com.guangyi.finddoctor.personCenter.ForgetPasswordActivity" 
+            android:screenOrientation="portrait"/>
+<activity android:name="com.guangyi.finddoctor.personCenter.MyCollectActivity" 
+            android:screenOrientation="portrait"/>
+<activity android:name="com.guangyi.finddoctor.personCenter.MyConsultActivity" 
+            android:screenOrientation="portrait"/>
+<activity android:name="com.guangyi.finddoctor.personCenter.MyRegisterActivity" 
+            android:screenOrientation="portrait"/>
+<activity android:name="com.guangyi.finddoctor.personCenter.RegisterRuleActivity" 
+            android:screenOrientation="portrait"/>
+<activity android:name="com.guangyi.finddoctor.personCenter.SuggestActivity" 
+            android:screenOrientation="portrait"/>
+<activity android:name="com.guangyi.finddoctor.personCenter.SuggestFraction" 
+            android:screenOrientation="portrait"/>
+<activity android:name="com.guangyi.finddoctor.personCenter.UserLoginActivity" 
+            android:screenOrientation="portrait"/>
+<activity android:name="com.guangyi.finddoctor.personCenter.UserRegisterActivity" 
+            android:screenOrientation="portrait"/>
+<activity android:name="com.guangyi.finddoctor.personCenter.IntroduceActivity" 
+            android:screenOrientation="portrait"/>
+<activity android:name="com.guangyi.finddoctor.personCenter.introduceDetail" 
+            android:screenOrientation="portrait"/>
+
+
+
+        
+        
+<!--         com.guangyi.finddoctor.preImage -->
+<activity android:name="com.guangyi.finddoctor.preImage.ImageShowActivity" 
+            android:screenOrientation="portrait"/>
+
+
+
+        
+<!--         com.guangyi.finddoctor.selfService -->
+        <activity android:name="com.guangyi.finddoctor.selfService.BodyDiseaseActivity" 
+            android:screenOrientation="portrait"/>
+        <activity android:name="com.guangyi.finddoctor.selfService.BodySymptomActivity" 
+            android:screenOrientation="portrait"/>
+        <activity android:name="com.guangyi.finddoctor.selfService.MainSymtomSearchActivity" 
+            android:screenOrientation="portrait"/>
+        <activity android:name="com.guangyi.finddoctor.selfService.SelfExaminationActivity" 
+            android:screenOrientation="portrait"/>
+        <activity android:name="com.guangyi.finddoctor.selfService.SelfExaminationBywords" 
+            android:screenOrientation="portrait"/>
+        <activity android:name="com.guangyi.finddoctor.selfService.SelfServiceLibraryAssayHome" 
+            android:screenOrientation="portrait"/>
+        <activity android:name="com.guangyi.finddoctor.selfService.SelfServiceLibraryAssayLibrary" 
+            android:screenOrientation="portrait"/>
+        <activity android:name="com.guangyi.finddoctor.selfService.SelfServiceLibraryDieseaseHome" 
+            android:screenOrientation="portrait"/>
+        <activity android:name="com.guangyi.finddoctor.selfService.SelfServiceLibraryDieseaseLibrary" 
+            android:screenOrientation="portrait"/>
+        <activity android:name="com.guangyi.finddoctor.selfService.SelfServiceMapDrugstoreActivity" 
+            android:screenOrientation="portrait"/>
+         <activity android:name="com.guangyi.finddoctor.selfService.SelfServiceMapHospitalActivity" 
+            android:screenOrientation="portrait"/>
+          <activity android:name="com.guangyi.finddoctor.selfService.SelfServiceSymtomSearch" 
+            android:screenOrientation="portrait"/>
+          <activity android:name="com.guangyi.finddoctor.selfService.SelfServiceHospitalHome" 
+            android:screenOrientation="portrait"/>
+        
+<!-- com.guangyi.finddoctor.secondActivity  -->
+        <activity android:name="com.guangyi.finddoctor.secondActivity.ShospitalRegister" 
+            android:screenOrientation="portrait">
+             <intent-filter>
+                <action android:name="finddoctor.intent.action.hospitalRegister" />
+            </intent-filter>
+        </activity>
+         <activity android:name="com.guangyi.finddoctor.secondActivity.SonlineAsk" 
+             android:screenOrientation="portrait">
+             <intent-filter>
+                <action android:name="finddoctor.intent.action.onlineAsk" />
+            </intent-filter>
+        </activity>
+            <activity android:name="com.guangyi.finddoctor.secondActivity.SselfService"
+                android:screenOrientation="portrait" >
+              <intent-filter>
+                <action android:name="finddoctor.intent.action.selfService" />
+            </intent-filter>
+        </activity>
+            <activity android:name="com.guangyi.finddoctor.secondActivity.SpersonCenter"
+                android:screenOrientation="portrait" >
+              <intent-filter>
+                <action android:name="finddoctor.intent.action.personCenter" />
+            </intent-filter>
+        </activity>
+               <activity android:name="com.guangyi.finddoctor.secondActivity.TabHomeActivity"
+                android:screenOrientation="portrait" >
+        </activity>
+        
+               
+               
+
+
+        <!-- push service rich media display -->
+        <activity
+            android:name="com.baidu.android.pushservice.richmedia.MediaViewActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="MediaViewActivity" >
+        </activity>
+        <activity
+            android:name="com.baidu.android.pushservice.richmedia.MediaListActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="MediaListActivity"
+            android:launchMode="singleTask" >
+        </activity>
+        
+        <!-- push service client -->
+        <receiver android:name="com.baidu.push.example.PushMessageReceiver">
+            <intent-filter>
+                <!-- 接收push消息 -->
+                <action android:name="com.baidu.android.pushservice.action.MESSAGE" />
+                <!-- 接收bind,unbind,fetch,delete等反馈消息 -->
+                <action android:name="com.baidu.android.pushservice.action.RECEIVE" />
+                <action android:name="com.baidu.android.pushservice.action.notification.CLICK" />
+            </intent-filter>
+        </receiver>
+        
+        <!-- push service -->
+        <receiver android:name="com.baidu.android.pushservice.PushServiceReceiver"
+            android:process=":bdservice_v1">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="com.baidu.android.pushservice.action.notification.SHOW" />
+                <action android:name="com.baidu.android.pushservice.action.media.CLICK" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name="com.baidu.android.pushservice.RegistrationReceiver"
+            android:process=":bdservice_v1">
+            <intent-filter>
+                <action android:name="com.baidu.android.pushservice.action.METHOD" />
+                <action android:name="com.baidu.android.pushservice.action.BIND_SYNC" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <data android:scheme="package" />
+            </intent-filter>                   
+        </receiver>
+        
+        <service
+            android:name="com.baidu.android.pushservice.PushService"
+            android:exported="true"
+            android:process=":bdservice_v1" />
+        
+        <meta-data android:name="api_key" android:value="awLfbbsdrVwEUs7MCYGFwNgL" />
+        <!-- push service end -->
+<!--         支付宝 -->
+        <activity 
+android:name="com.alipay.android.app.sdk.WapPayActivity" 
+android:screenOrientation="portrait"> 
+</activity> 
+        
+        <!-- 友盟自动检测更新版本的! -->
+        <meta-data android:value="52c520af56240bc9541874e3" android:name="UMENG_APPKEY"></meta-data>
+<meta-data android:value="Channel ID" android:name="UMENG_CHANNEL"/>
+        
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="b7067b5b49390c6df506f5710e2d7b18" />
+    </application>
+
+</manifest>

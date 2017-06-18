@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="5dp"
+        >
+
+        <TextView
+            android:id="@+id/tv_search_deptname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:textColor="@color/common_green"
+            android:textSize="@dimen/common_text_size" />
+        <TextView
+            android:id="@+id/tv_search_hospital"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:textSize="@dimen/common_text_size_small"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/tv_search_deptintroduce"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:textSize="@dimen/common_text_size_small"
+            android:visibility="gone"
+            android:textColor="@color/black"
+            android:text="是泌尿系的常见病。结石可见于肾、膀胱、输尿管和尿道的任何部位。但以肾与输尿管结石为常见。临床表现因结石所在部位不同而有异。" />
+        
+         
+
+    </LinearLayout>
+
+</LinearLayout>

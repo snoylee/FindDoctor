@@ -1,0 +1,26 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+        
+      
+    <com.guangyi.forDoctor.reflashView.PullToRefreshView 
+    android:id="@+id/main_pull_refresh_view"
+    android:background="@android:color/white"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" 
+    android:orientation="vertical">
+	<!-- 这里放置listview,gridview或者scrollview的布局 ,PullToRefreshView
+	要设置android:orientation="vertical"属性
+	否则,显示不正确-->
+    <ListView
+        android:id="@+id/mlist"
+         android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:divider="@null"
+                android:drawSelectorOnTop="false"
+                android:fadingEdgeLength="0.0sp"/>
+</com.guangyi.forDoctor.reflashView.PullToRefreshView >
+
+</RelativeLayout>

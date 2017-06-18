@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/relative_top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/top_bar_background"
+        android:gravity="center_vertical" >
+
+        <TextView
+            android:id="@+id/tv_topbar_center_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="填写就诊信息"
+            android:textColor="@color/white"
+            android:textSize="@dimen/top_bar_center_text_size" />
+
+        <Button
+            android:id="@+id/ib_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:background="@drawable/back_selector"
+            android:gravity="center"
+            android:text="  返回"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/ib_post"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="8dp"
+            android:background="@drawable/post_selector"
+            android:gravity="center"
+            android:text="提交"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+
+    <ScrollView 
+        android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        
+       <LinearLayout 
+           android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+           
+           
+            <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="填写就诊信息"
+            android:textColor="@color/common_grey"
+             android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+            android:textSize="@dimen/common_text_size_middle" />
+     <include layout="@layout/sidebutton"
+         android:id="@+id/slide_button1"
+         android:layout_height="50dp"
+        android:layout_gravity="center"
+       android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+    	android:layout_width="match_parent"
+    ></include>
+     
+     	<LinearLayout 
+		android:orientation="horizontal" android:layout_width="match_parent"
+		android:background="@drawable/buttonbg"
+		android:id="@+id/is_first_second"
+		android:visibility="gone"
+        android:layout_gravity="center"
+       android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+		android:layout_height="50dp">
+
+		<TextView  android:id="@+id/tv_isFirst"
+			android:layout_width="fill_parent" android:layout_height="fill_parent"
+			android:gravity="center"
+			android:text="初诊"
+			android:layout_weight="1" android:textColor="@color/text_color">
+		</TextView>
+
+
+		<TextView android:id="@+id/tv_isSecond"
+			android:layout_width="fill_parent" android:layout_height="fill_parent"
+			android:gravity="center"
+			android:text="复诊"
+			android:layout_weight="1" android:textColor="@color/text_color"></TextView>
+	</LinearLayout>
+     
+     <LinearLayout 
+         android:id="@+id/linear_card"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:orientation="vertical"
+         android:layout_marginLeft="10dp"
+         android:layout_marginRight="10dp"
+         android:layout_marginTop="10dp"
+         >
+     <TextView
+         android:id="@+id/tv_popmenu"
+         android:layout_width="match_parent"
+         android:layout_height="50dp"
+         android:paddingLeft="10dp"
+         android:paddingRight="10dp"
+         android:gravity="center_vertical"
+         android:textSize="@dimen/common_text_size"
+         android:drawableRight="@drawable/mm_submenu_down"
+         android:background="@drawable/ic_preference_first_selector"
+         android:visibility="gone"
+         >
+     </TextView>
+     <EditText
+         android:id="@+id/tv_card_number"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:paddingLeft="10dp"
+         android:paddingRight="10dp"
+         android:hint="就诊卡号码(必填)"
+         android:gravity="center_vertical"
+         android:background="@drawable/ic_preference_last_normal"
+         android:visibility="gone"
+         >
+     </EditText>
+     </LinearLayout>
+     
+     <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="是否已确诊"
+            android:textColor="@color/common_grey"
+            android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+            android:textSize="@dimen/common_text_size" />
+     
+     <include layout="@layout/sidebutton"
+         android:id="@+id/slide_button2"
+    	android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+    	android:layout_width="match_parent"
+    ></include>
+
+    <EditText
+        android:id="@+id/et_question"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:lines="5"
+        android:gravity="left|top"
+        android:background="@drawable/ic_preference_all_circle1"
+        android:hint="请输入疾病名称" />
+
+     <TextView
+         android:id="@+id/tv_see_rules"
+         android:layout_width="match_parent"
+         android:layout_height="50dp"
+         android:paddingLeft="10dp"
+         android:paddingRight="22dp"
+         android:text="查看预约规则"
+         android:layout_marginLeft="10dp"
+         android:layout_marginRight="10dp"
+         android:layout_marginTop="10dp"
+         android:layout_marginBottom="10dp"
+         android:textColor="@color/common_green"
+         android:gravity="center_vertical"
+         android:textSize="@dimen/common_text_size"
+         android:background="@drawable/ic_preference_all_circle1"
+         android:drawableRight="@drawable/mm_submenu_normal"
+         
+         >
+     </TextView>
+       </LinearLayout>
+        
+    </ScrollView>
+    
+</LinearLayout>

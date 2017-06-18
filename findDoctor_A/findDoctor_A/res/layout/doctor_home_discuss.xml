@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_background"
+    android:orientation="vertical" >
+
+    <com.guangyi.finddoctor.reflashView.PullToRefreshView
+        android:id="@+id/main_pull_refresh_view"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@android:color/transparent"
+        android:orientation="vertical" >
+
+        <!--
+    这里放置listview,gridview或者scrollview的布局 ,PullToRefreshView
+	要设置android:orientation="vertical"属性
+	否则,显示不正确
+        -->
+
+        <ListView
+            android:id="@+id/mlist"
+            style="@style/listView_style"
+            android:divider="@drawable/bottom_line"
+            android:drawSelectorOnTop="false"
+            android:fadingEdgeLength="0.0sp" />
+    </com.guangyi.finddoctor.reflashView.PullToRefreshView>
+
+</LinearLayout>

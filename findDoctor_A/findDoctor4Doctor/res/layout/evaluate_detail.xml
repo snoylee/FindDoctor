@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical" >
+    <RelativeLayout
+        android:id="@+id/relative_top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/top_bar_background"
+        android:gravity="center_vertical" >
+
+        <TextView
+            android:id="@+id/tv_topbar_center_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="查看评价"
+            android:textColor="@color/white"
+            android:textSize="@dimen/top_bar_center_text_size" />
+
+        <Button
+            android:id="@+id/ib_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:background="@drawable/back_selector"
+            android:gravity="center"
+            android:text="返回"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:background="@drawable/evaluate_bg"
+            android:orientation="horizontal"
+            android:gravity="center_vertical" >
+            <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="评价 : "
+            android:textSize="@dimen/top_bar_center_text_size" 
+            android:textColor="@color/common_green"/>
+
+            <TextView
+                android:id="@+id/tv_evaluation_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+<LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:orientation="horizontal"
+            android:background="@drawable/evaluate_bg"
+            android:gravity="center_vertical" >
+            <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="服务态度"
+            android:textSize="@dimen/top_bar_center_text_size" />
+
+            <RatingBar
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:id="@+id/RatingBar_service"
+                style="@style/big_star"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                 android:stepSize="0.5"
+                 android:isIndicator="true"
+                android:numStars="5" />
+
+            <TextView
+                android:id="@+id/tv_service"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0分"
+                android:textColor="@color/common_green"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+        
+<LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+             android:padding="10dp"
+             android:background="@drawable/evaluate_bg"
+            android:orientation="horizontal"
+            android:gravity="center_vertical" >
+            <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="专业水平"
+            android:textSize="@dimen/top_bar_center_text_size" />
+
+            <RatingBar
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:id="@+id/RatingBar_skill"
+                style="@style/big_star"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:isIndicator="true"
+                 android:stepSize="0.5"
+                android:numStars="5" />
+
+             <TextView
+                android:id="@+id/tv_skill"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0分"
+                android:textColor="@color/common_green"
+                android:textSize="20sp" />
+        </LinearLayout>
+        
+<LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+             android:padding="10dp"
+             android:background="@drawable/evaluate_bg"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            android:gravity="center_vertical" >
+            <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="回复速度"
+            android:textSize="@dimen/top_bar_center_text_size"  />
+
+            <RatingBar
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:id="@+id/RatingBar_efficiency"
+                style="@style/big_star"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:isIndicator="true"
+                 android:stepSize="0.5"
+                android:numStars="5" />
+
+              <TextView
+                android:id="@+id/tv_efficiency"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0分"
+                android:textColor="@color/common_green"
+                android:textSize="20sp" />
+        </LinearLayout>
+        
+<RelativeLayout
+    android:id="@+id/relative_button"
+    android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+             android:padding="10dp"
+             android:background="@drawable/evaluate_bg"
+            android:gravity="center_vertical" >
+
+    <Button
+        android:id="@+id/btn_see_problem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@drawable/button_big_selector"
+        android:textColor="@color/white"
+        android:text="查看问题"
+        android:textSize="@dimen/top_bar_center_text_size" />
+        </RelativeLayout>
+        
+
+</LinearLayout>

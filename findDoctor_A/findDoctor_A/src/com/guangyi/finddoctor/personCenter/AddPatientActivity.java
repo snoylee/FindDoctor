@@ -1,0 +1,384 @@
+package com.guangyi.finddoctor.personCenter;
+
+import java.text.ParseException;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.guangyi.finddoctor.activity.BasicActivity;
+import com.guangyi.finddoctor.activity.R;
+import com.guangyi.finddoctor.application.FindDoctorApplication;
+import com.guangyi.finddoctor.config.ResultCodeCategory;
+import com.guangyi.finddoctor.personCenter.PChooseCityActivity;
+import com.guangyi.finddoctor.http.ApiHttpUtil;
+import com.guangyi.finddoctor.model.City;
+import com.guangyi.finddoctor.model.CommonPatient;
+import com.guangyi.finddoctor.utils.Config;
+import com.guangyi.finddoctor.utils.RegularTools;
+
+/**
+ * <p>
+ * Title: 网络医院运营支撑平台-APP个人版
+ * </p>
+ * <p>
+ * Description:增加问诊人
+ * </p>
+ * <p>
+ * Copyright: Copyright (c) 2013
+ * </p>
+ * <p>
+ * Company:中国移动有限公司东莞分公司
+ * </p>
+ * 
+ * @author：<a href=”mailto:jomin5120@sina.com”>jomin5120@sina.com</a>
+ * @version：1.0
+ * @since：2013-9-23
+ */
+public class AddPatientActivity extends BasicActivity {
+	private Button ib_back, ib_post;
+	private EditText et_name, et_age, et_cardnum, et_mobile;
+	private TextView tv_sex, tv_addr, tv_topbar_center_text;
+	private String userName, userMoble, userAddress, userAge, userSex,
+			userCard;
+	private int userId = -1;
+	private ApiHttpUtil mApiHttpUtil;
+	Handler mHandler;
+	SharedPreferences mSharedPreferences;
+	private CommonPatient patient;
+	private int tagType = 0;
+	private Runnable mRunnable;
+	private Thread mThread;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.add_patient);
+		FindDoctorApplication closeApplication=(FindDoctorApplication) getApplication();
+		closeApplication.addActivity(this);
+		initParams();
+		initView();
+		initListener();
+	}
+
+	private void commonThreadStart() {
+		if (mRunnable != null) {
+			mThread = new Thread(mRunnable);
+			mThread.start();
+		}
+	}
+
+	protected void onStop() {
+		mHandler.removeCallbacks(mRunnable);
+		super.onStop();
+	}
+
+	private void initParams() {
+
+		mHandler = new MyHandler();
+		initMySharedPreference();
+		tagType = this.getIntent().getExtras().getInt("tagtype");
+		patient = (CommonPatient) this.getIntent().getSerializableExtra(
+				"patient");
+
+	}
+
+	private void initMySharedPreference() {
+		mSharedPreferences = getSharedPreferences("personCenter",
+				Context.MODE_PRIVATE);
+		userId = mSharedPreferences.getInt("userId", -1);
+
+	}
+
+	private void initView() {
+		tv_topbar_center_text = (TextView) findViewById(R.id.tv_topbar_center_text);
+		ib_back = (Button) findViewById(R.id.ib_back);
+		ib_post = (Button) findViewById(R.id.ib_post);
+		et_name = (EditText) findViewById(R.id.et_patient_name);
+		tv_sex = (TextView) findViewById(R.id.tv_patient_sex);
+		et_age = (EditText) findViewById(R.id.et_patient_age);
+		et_cardnum = (EditText) findViewById(R.id.et_patient_cardnum);
+		et_mobile = (EditText) findViewById(R.id.et_patient_mobile);
+		tv_addr = (TextView) findViewById(R.id.tv_patient_addr);
+		if (tagType == 1) {
+			tv_topbar_center_text.setText("修改问诊人");
+			ib_post.setText("修改");
+			et_name.setText(patient.getName());
+			int sex = patient.getSex();
+			if (sex == 1) {
+				tv_sex.setText("男");
+			} else if (sex == 2) {
+				tv_sex.setText("女");
+			}
+			et_age.setText(String.valueOf(patient.getAge()));
+			et_cardnum.setText(patient.getUserCard());
+			et_mobile.setText(String.valueOf(patient.getUserMoble()));
+			tv_addr.setText(patient.getUserAddress());
+		}
+	}
+
+	private void bindData() {
+		userName = et_name.getText().toString().trim();
+		userMoble = et_mobile.getText().toString().trim();
+		userAddress = tv_addr.getText().toString().trim();
+		userAge = et_age.getText().toString().trim();
+		// String sexStr = tv_sex.getText().toString().trim();
+		// if (sexStr.equals("男")) {
+		// userSex = "1";
+		// } else if(sexStr.equals("女")){
+		// userSex = "2";
+		// }
+		userCard = et_cardnum.getText().toString();
+
+	}
+
+	private void initListener() {
+		ib_back.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				// Intent intent = new Intent();
+				// setResult(ResultCodeCategory.RESULT_CODE_NODATA, intent);
+				finish();
+
+			}
+		});
+
+		tv_sex.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				if (tv_sex.getText().toString().equals("男")) {
+					// userSex = "2";
+					tv_sex.setText("女");
+				} else {
+					tv_sex.setText("男");
+					// userSex = "1";
+				}
+
+			}
+		});
+
+		tv_addr.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				Intent it=new Intent();
+				it.setClass(AddPatientActivity.this, PChooseCityActivity.class);
+					it.putExtra("department", "-1");
+				startActivityForResult(it, 0);
+//				openActivityforResult(ChooseCityActivity.class);
+
+			}
+		});
+
+		ib_post.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				bindData();
+				if (userName == null || "".equals(userName)) {
+					Toast.makeText(AddPatientActivity.this, "姓名不能为空！",
+							Toast.LENGTH_SHORT).show();
+					return;
+				}
+				if (userAge == null || "".equals(userAge)) {
+					Toast.makeText(AddPatientActivity.this, "年龄不能为空！",
+							Toast.LENGTH_SHORT).show();
+					return;
+				}
+				if (userAge.length() <= 0 || Integer.parseInt(userAge) <= 0
+						|| Integer.parseInt(userAge) > 120) {
+					Toast.makeText(AddPatientActivity.this, "年龄输入不正确，请重新输入！",
+							Toast.LENGTH_SHORT).show();
+					return;
+				}
+				try {
+					if(!RegularTools.IDCardValidate(userCard).equals(""))
+					{
+						showToast(RegularTools.IDCardValidate(userCard));
+						return;
+					}
+				} catch (ParseException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+//				if (userCard == null || "".equals(userCard)) {
+//					Toast.makeText(AddPatientActivity.this, "身份证号不能为空！",
+//							Toast.LENGTH_SHORT).show();
+//
+//					return;
+//				}
+//				if (userCard.length() != 18) {
+//					Toast.makeText(AddPatientActivity.this, "身份证号不正确！",
+//							Toast.LENGTH_SHORT).show();
+//
+//					return;
+//				}
+				if (userMoble == null || "".equals(userMoble)) {
+					Toast.makeText(AddPatientActivity.this, "手机号不能为空！",
+							Toast.LENGTH_SHORT).show();
+
+					return;
+				}
+				if (userMoble.length() != 11) {
+					Toast.makeText(AddPatientActivity.this, "手机号码格式不正确！",
+							Toast.LENGTH_SHORT).show();
+					return;
+				}
+				if (userAddress == null || "".equals(userAddress)) {
+					Toast.makeText(AddPatientActivity.this, "家庭住址不能为空！",
+							Toast.LENGTH_SHORT).show();
+					return;
+				}
+				if (tagType == 0) {
+					postData(0);
+				} else if (tagType == 1) {
+					postData(1);
+				}
+
+			}
+		});
+	}
+
+	// 提交问诊人信息
+	private void postData(final int type) {
+		initProgressDialog();
+		bindData();
+		if (type == 0) {
+			mRunnable = new Runnable() {
+
+				/*
+				 * (non-Javadoc)
+				 * 
+				 * @see java.lang.Runnable#run()
+				 */
+				@Override
+				public void run() {
+					Message msg = new Message();
+					mApiHttpUtil = new ApiHttpUtil();
+					Map<String, String> params = new HashMap<String, String>();
+					params.put("userId", String.valueOf(userId));
+					params.put("userName", userName);
+					params.put("userCard", userCard);
+					params.put("userAge", userAge);
+					params.put("userMoble", userMoble);
+					params.put("userSex", tv_sex.getText().toString().trim());
+					params.put("userAddress", userAddress);
+					msg.arg1 = type;
+					msg.obj = mApiHttpUtil.postMethod(
+							Config.getProperty("ADD_PATIENT", ""), params);
+					mHandler.sendMessage(msg);
+				}
+			};
+		} else if (type == 1) {
+
+			mRunnable = new Runnable() {
+
+				/*
+				 * (non-Javadoc)
+				 * 
+				 * @see java.lang.Runnable#run()
+				 */
+				@Override
+				public void run() {
+					Message msg = new Message();
+					mApiHttpUtil = new ApiHttpUtil();
+					Map<String, String> params = new HashMap<String, String>();
+					params.put("id", patient.getId() + "");
+					params.put("userId", String.valueOf(userId));
+					params.put("userName", userName);
+					params.put("userCard", userCard);
+					params.put("userAge", userAge);
+					params.put("userMoble", userMoble);
+					params.put("userSex", tv_sex.getText().toString().trim());
+					params.put("userAddress", userAddress);
+					msg.arg1 = type;
+					msg.obj = mApiHttpUtil.postMethod(
+							Config.getProperty("UPDATE_PATIENT", ""), params);
+					mHandler.sendMessage(msg);
+				}
+			};
+
+		}
+		commonThreadStart();
+
+	}
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		if (resultCode == ResultCodeCategory.RESULT_CODE_CHOSE_CITY) {
+
+			tv_addr.setText(data.getExtras().getString(City.REGIONNAME));
+
+		}
+		super.onActivityResult(requestCode, resultCode, data);
+	}
+	
+	private void backResultActivity() {
+		setResult(ResultCodeCategory.RESULT_CODE_ADD_PATIENT);
+		finish();
+	}
+
+	
+	
+	class MyHandler extends Handler {
+		@Override
+		public void handleMessage(Message msg) {
+
+			canclePregressDialog();
+			JSONObject jsonObject = null;
+			String jsonString = msg.obj.toString();
+			if (jsonString.equals(ApiHttpUtil.SOCONNTIMEOUT)) {
+				showToast(getResources().getString(R.string.soconntimeout));
+			} else if (jsonString.equals(ApiHttpUtil.CONNTIMEOUT)) {
+				showToast(getResources().getString(R.string.conntimeout));
+			} else {
+
+				int code = -1;
+				String reason = getResources().getString(
+						R.string.network_preoblem);
+				try {
+					jsonObject = new JSONObject(msg.obj.toString());
+					code = jsonObject.getInt("code");
+					reason = jsonObject.getString("reason");
+				} catch (JSONException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				if (code == 0) {
+
+					if (msg.arg1 == 0) {
+						showToast(reason);
+						backResultActivity();
+					}
+
+					else if (msg.arg1 == 1) {
+						showToast(reason);
+						backResultActivity();
+					}
+
+				} else {
+					showToast(reason);
+				}
+
+			}
+
+			super.handleMessage(msg);
+
+		}
+	}
+}

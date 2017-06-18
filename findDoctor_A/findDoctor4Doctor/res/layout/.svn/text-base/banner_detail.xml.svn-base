@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+    
+    <RelativeLayout
+        android:id="@+id/relative_top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/top_bar_background"
+        android:gravity="center_vertical" >
+
+        <TextView
+            android:id="@+id/tv_topbar_center_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="@color/white"
+            android:textSize="@dimen/top_bar_center_text_size" />
+
+          <Button
+            android:id="@+id/ib_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:text="  返回"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:background="@drawable/back_selector" />
+    </RelativeLayout>
+
+    <ScrollView 
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:gravity="center_horizontal"
+        >
+        
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+    <TextView
+        android:layout_marginTop="5dp"
+        android:id="@+id/tv_banner_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/common_text_size_big"
+        android:gravity="left"
+        android:textColor="@color/black"/>
+    
+        <TextView
+        android:layout_marginTop="5dp"
+        android:id="@+id/tv_banner_time"
+        android:layout_below="@+id/tv_banner_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/common_text_size"
+        android:gravity="left"/>
+        </RelativeLayout>
+
+    <ImageView
+        android:layout_marginTop="5dp"
+        android:id="@+id/iv_banner_pic"
+        android:scaleType="fitXY"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <WebView 
+       android:layout_marginTop="10dp"
+        android:id="@+id/webView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/transparent"
+        />
+    
+    <RelativeLayout 
+        android:layout_marginTop="10dp"
+         android:layout_marginBottom="10dp"
+        android:layout_width="match_parent"
+         android:layout_height="wrap_content">
+    <LinearLayout
+        android:id="@+id/linear_phone"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_centerInParent="true"
+         android:gravity="center"
+         android:orientation="horizontal"
+         android:visibility="gone"
+         android:background="@drawable/phone_bg"
+        >
+        
+        <ImageView 
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:scaleType="fitXY"
+         android:src="@drawable/phone_pic"/>
+         <TextView
+        android:layout_marginLeft="5dp"
+        android:text="服务热线:"
+        android:textColor="#414141"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+        <TextView
+        android:id="@+id/tv_phone"
+        android:autoLink="phone"
+        android:text="18888888888"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+     </LinearLayout>
+     
+    </RelativeLayout>
+    
+    </LinearLayout>
+    
+    
+    
+    </ScrollView>
+
+</LinearLayout>

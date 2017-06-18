@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/LinearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:background="@drawable/add_consult_bg" >
+        <LinearLayout
+            android:id="@+id/LinearLayout1"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical" >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/common_patient_picture" />
+            <TextView
+                android:id="@+id/tv_patient_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/common_text_size"
+                android:text="张三丰"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:textColor="@color/common_grey" />
+        </LinearLayout>
+        
+        <View
+            android:layout_width="1px"
+            android:layout_height="fill_parent"
+            android:background="@color/common_grey"
+      />
+
+        <LinearLayout
+            android:id="@+id/LinearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/comm_padding_left_right"
+                android:textSize="@dimen/common_text_size"
+                android:text="性 别 : "
+                android:textColor="@color/common_grey" />
+
+            <TextView
+                android:id="@+id/tv_patient_sex"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/common_text_size"
+                android:text="男"
+                android:textColor="@color/common_grey" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:textSize="@dimen/common_text_size"
+                android:text="年 龄 : "
+                android:textColor="@color/common_grey" />
+
+            <TextView
+                android:id="@+id/tv_patient_age"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/common_text_size"
+                android:text="28"
+                android:textColor="@color/common_grey" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,146 @@
+8
+
+dir
+329
+svn://218.83.161.124:9999/guangyi/projects/APP/findDoctor_A/findDoctor_A
+svn://218.83.161.124:9999
+
+
+
+2014-03-14T09:13:29.854123Z
+324
+xiangli
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+e47c4bb8-8fed-4b2c-bae1-98149401a4f8
+
+.classpath
+file
+358
+
+
+
+2014-03-17T09:51:50.156250Z
+a4a4cfa78e1985d8bef24c37ba386392
+2014-03-31T03:30:00.163528Z
+358
+tieshanli
+
+project.properties
+file
+358
+
+
+
+2014-03-17T10:20:13.078125Z
+fe610b5f9d24a7652660069e3a2dbd13
+2014-03-31T03:30:00.163528Z
+358
+tieshanli
+
+assets
+dir
+
+.project
+file
+
+
+
+
+2014-03-14T09:04:00.281250Z
+1ad13f134bfee70bed0656b4301ae973
+2014-02-25T05:14:16.560102Z
+168
+chhzhao
+
+lint.xml
+file
+
+
+
+
+2014-03-14T09:04:00.281250Z
+1ce274a186a2afb9f76542702f6ecc4d
+2014-02-25T05:14:16.560102Z
+168
+chhzhao
+
+proguard-project.txt
+file
+358
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+deleted
+
+AndroidManifest.xml
+file
+382
+
+
+
+2014-03-31T03:20:11.609375Z
+7e0d3ba668d4fd3c8dd470654401aa04
+2014-04-02T11:34:01.521913Z
+382
+tieshanli
+
+src
+dir
+
+bin
+dir
+
+gen
+dir
+
+libs
+dir
+
+res
+dir
+
+ic_launcher-web.png
+file
+
+
+
+
+2014-03-14T09:04:00.296875Z
+03162f4ee138bcbae36f78b1d25dbd5b
+2014-02-25T05:14:16.560102Z
+168
+chhzhao
+has-props
+
+.settings
+dir
+

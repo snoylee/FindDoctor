@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:background="@drawable/online_list_item_top_bg" >
+
+        <TextView
+            android:layout_weight="1"
+            android:id="@+id/tv_time_str"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="预约时间 "
+            android:textColor="@color/white"
+            android:gravity="left"
+            android:textSize="17sp" />
+
+        <TextView
+            android:layout_weight="1"
+            android:id="@+id/tv_time"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:ems="18"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:textSize="17sp" />
+
+        <TextView
+            android:layout_weight="1"
+            android:id="@+id/tv_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:gravity="right"
+            android:text="2013-10-12"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/online_list_item_bottom_bg"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="预约人资料  : " />
+            <TextView
+                android:id="@+id/tv_sex"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="女" />
+            <TextView
+                android:visibility="gone"
+                android:layout_marginLeft="10dp"
+                android:id="@+id/tv_age"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="55岁" />
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:id="@+id/tv_diagnose"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="复诊" />
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:id="@+id/tv_hosp_register"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="首次预约" />
+            
+        </LinearLayout>
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="通话时间 : " />
+            <TextView
+                android:id="@+id/tv_talk_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="30分钟" />
+           
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

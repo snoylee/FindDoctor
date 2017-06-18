@@ -1,0 +1,379 @@
+package com.guangyi.finddoctor.personCenter;
+
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
+import android.content.res.Resources;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.preference.PreferenceManager;
+import android.util.Log;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.View.OnFocusChangeListener;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.baidu.android.pushservice.PushConstants;
+import com.baidu.android.pushservice.PushManager;
+import com.baidu.push.example.Utils;
+import com.guangyi.finddoctor.activity.BasicActivity;
+import com.guangyi.finddoctor.activity.R;
+import com.guangyi.finddoctor.application.FindDoctorApplication;
+import com.guangyi.finddoctor.config.ResultCodeCategory;
+import com.guangyi.finddoctor.http.ApiHttpUtil;
+import com.guangyi.finddoctor.model.User;
+import com.guangyi.finddoctor.utils.Config;
+import com.guangyi.finddoctor.utils.MD5;
+
+/**
+ * <p>
+ * Title: 网络医院运营支撑平台-APP个人版
+ * </p>
+ * <p>
+ * Description:用户登录
+ * </p>
+ * <p>
+ * Copyright: Copyright (c) 2013
+ * </p>
+ * <p>
+ * Company:中国移动有限公司东莞分公司
+ * </p>
+ * 
+ * @author：<a href=”mailto:jomin5120@sina.com”>jomin5120@sina.com</a>
+ * @version：1.0
+ * @since：2013-9-23
+ */
+public class UserLoginActivity extends BasicActivity implements OnClickListener,OnFocusChangeListener {
+	private EditText mUserPhone, mUserPwd;
+	private Button mButtonLogin, mButtonRegister;
+	private Handler mHandler;
+	private Message msg;
+	private Button mBack;
+	ApiHttpUtil apiHttpUtil;
+	User user;
+//	int userId = -1;
+//	boolean isLogin = false;
+	private TextView tv_forget_pwd;
+	private String mobile;
+	private String password;
+	private Runnable mRunnable;
+	private Thread mThread;
+		
+	private void commonThreadStart()
+		{
+			if(mRunnable!=null)
+			{
+			mThread=new Thread(mRunnable);
+			mThread.start();
+			}
+		}
+
+		protected void onStop() {
+			mHandler.removeCallbacks(mRunnable);
+			super.onStop();
+			
+			PushManager.activityStoped(this);
+		}
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.user_login);
+		FindDoctorApplication closeApplication=(FindDoctorApplication) getApplication();
+		closeApplication.addActivity(this);
+		initBack();
+		initHttp();
+		initView();
+		initListener();
+	}
+
+	private void initHttp() {
+		mHandler = new MyHandler();
+		apiHttpUtil = new ApiHttpUtil();
+
+	}
+
+	private void initView() {
+
+		mUserPhone = (EditText) findViewById(R.id.et_user_phone);
+		mUserPwd = (EditText) findViewById(R.id.et_user_pwd);
+		mUserPwd.setOnFocusChangeListener(this);
+		mButtonLogin = (Button) findViewById(R.id.ib_user_login);
+		mButtonRegister = (Button) findViewById(R.id.ib_user_register);
+		tv_forget_pwd = (TextView) findViewById(R.id.tv_forget_pwd);
+
+	}
+
+	private void initListener() {
+
+		mButtonLogin.setOnClickListener(this);
+		mButtonRegister.setOnClickListener(this);
+		tv_forget_pwd.setOnClickListener(this);
+	}
+
+	@Override
+	public void onClick(View v) {
+		int id = v.getId();
+		if (id == R.id.ib_user_login) {
+			mobile = mUserPhone.getText().toString().trim();
+			password = mUserPwd.getText().toString().trim();
+			if (mobile == null || "".equals(mobile)) {
+				showToast("手机号码不能为空!");
+				return;
+			}
+			if (password == null || "".equals(password)) {
+				showToast( "密码不能为空!");
+				return;
+			}
+			if (mobile.length() != 11) {
+				showToast( "手机号码不正确，请重新输入!");
+				return;
+			}
+			loginNow();
+		} else if (id == R.id.ib_user_register) {
+			Intent it = new Intent();
+			it.setClass(UserLoginActivity.this, UserRegisterActivity.class);
+			startActivityForResult(it, 0);
+		} else if (id == R.id.tv_forget_pwd) {
+			openActivity(ForgetPasswordActivity.class);
+		} else {
+		}
+
+	}
+
+	private class MyHandler extends Handler {
+		@Override
+		public void handleMessage(Message msg) {
+			if (msg.obj != null) {
+				String jsonString = (String) msg.obj;
+				user = new User();
+				Log.i("result  login", jsonString);
+				if (jsonString.equals(ApiHttpUtil.CONNTIMEOUT)) {
+					canclePregressDialog();
+					showToast(getResources().getString(R.string.conntimeout));
+				} else {
+					
+					try {
+						canclePregressDialog();
+						JSONObject jsonObject = new JSONObject(jsonString);
+						int code=jsonObject.getInt("code");
+						String reason=jsonObject.getString("reason");
+						showToast(reason);
+						JSONObject userObj = jsonObject.getJSONObject("user");
+						int sendType=userObj.getInt("sendType");
+						
+						if (code == 0) {
+							SharedPreferences mSharedPreferences = getSharedPreferences("personCenter",
+									Context.MODE_PRIVATE);
+							Editor mEditor = mSharedPreferences.edit();
+							mEditor.putInt("userId",userObj.getInt("id"));
+							mEditor.putBoolean("isLogin",true);
+							mEditor.putBoolean("isShow", true);
+							mEditor.putString("userMobile",userObj.getString("userMoble"));
+							mEditor.putInt(getResources().getString(R.string.sendType), sendType);
+							mEditor.commit();
+							startPushService();
+							backResultActivity();
+						}
+
+					} catch (JSONException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					
+					
+				}
+			}
+			super.handleMessage(msg);
+		}
+
+	}
+
+	private void loginNow() {
+		initProgressDialog();
+		mRunnable=new Runnable() {
+			@Override
+			public void run() {
+				msg = new Message();
+				Map<String, String> params = new HashMap<String, String>();
+				String transactionId = String.valueOf(new Date().getTime());
+				String passwd = MD5.GetMD5Code(password);
+				params.put("mobile", mobile);
+				params.put("passwd", passwd);
+				params.put("transactionId", transactionId);
+				params.put("isDoctorVersion", "0");
+				msg.obj = apiHttpUtil.postMethod(
+						Config.getProperty("lOGIN_STRING", ""), params);
+				mHandler.sendMessage(msg);
+			}
+		};
+		commonThreadStart();
+
+	}
+
+	private void backResultActivity() {
+		SharedPreferences mSharedPreferences = getSharedPreferences("personCenter",
+				Context.MODE_PRIVATE);
+		Intent intent = new Intent();
+		intent.putExtra(ResultCodeCategory.fLAG, 3);
+		intent.putExtra("userMobile", mSharedPreferences.getString("userMobile",""));
+		intent.putExtra("userId", mSharedPreferences.getInt("userId",-1));
+		intent.putExtra("isLogin", mSharedPreferences.getBoolean("isLogin",false));
+		setResult(ResultCodeCategory.RESULT_CODE_LOGIN, intent);
+		this.finish();
+	}
+
+	private void initBack() {
+		mBack = (Button) findViewById(R.id.ib_back);
+
+		mBack.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				finish();
+
+			}
+		});
+	}
+	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		if (resultCode == ResultCodeCategory.RESULT_CODE_REGISTER) {
+			backResultActivity();
+		}
+		super.onActivityResult(requestCode, resultCode, data);
+	}
+
+	@Override
+	public void onFocusChange(View v, boolean hasFocus) {
+//		mUserPhone = (EditText) findViewById(R.id.et_user_phone);
+		
+		if (hasFocus) {
+			if(v.getId()==R.id.et_user_pwd)
+			{
+				if (mUserPhone.getText().toString().trim().length()<=0) {
+					showToast( "手机号码不能为空!");
+					return;
+				}
+				if (mUserPhone.getText().toString().trim().length()>0&&mUserPhone.getText().toString().trim().length()!=11) {
+					showToast( "手机号码格式不正确!");
+					return;
+				}
+			}
+		}
+		
+	}
+	
+	
+	@Override
+	protected void onStart() {
+		// TODO Auto-generated method stub
+		super.onStart();
+		PushManager.activityStarted(this);
+//		showChannelIds();
+	}
+	
+	
+	
+	/**
+	 * 处理Intent
+	 * 
+	 * @param intent
+	 *            intent
+	 */
+//	private void handleIntent(Intent intent) {
+//		String action = intent.getAction();
+//
+//		if (Utils.ACTION_RESPONSE.equals(action)) {
+//
+//			String method = intent.getStringExtra(Utils.RESPONSE_METHOD);
+//
+//			if (PushConstants.METHOD_BIND.equals(method)) {
+//				String toastStr = "";
+//				int errorCode = intent.getIntExtra(Utils.RESPONSE_ERRCODE, 0);
+//				if (errorCode == 0) {
+//					String content = intent
+//							.getStringExtra(Utils.RESPONSE_CONTENT);
+//					String appid = "";
+//					String channelid = "";
+//					String userid = "";
+//
+//					try {
+//						JSONObject jsonContent = new JSONObject(content);
+//						JSONObject params = jsonContent
+//								.getJSONObject("response_params");
+//						appid = params.getString("appid");
+//						channelid = params.getString("channel_id");
+//						userid = params.getString("user_id");
+//					} catch (JSONException e) {
+//						Log.e(Utils.TAG, "Parse bind json infos error: " + e);
+//					}
+//
+//					SharedPreferences sp = PreferenceManager
+//							.getDefaultSharedPreferences(this);
+//					Editor editor = sp.edit();
+//					editor.putString("appid", appid);
+//					editor.putString("channel_id", channelid);
+//					editor.putString("user_id", userid);
+//					editor.commit();
+//
+////					showChannelIds();
+//
+//					toastStr = "Bind Success";
+//				} else {
+//					toastStr = "Bind Fail, Error Code: " + errorCode;
+//					if (errorCode == 30607) {
+//						Log.d("Bind Fail", "update channel token-----!");
+//					}
+//				}
+//
+//				Toast.makeText(this, toastStr, Toast.LENGTH_LONG).show();
+//				
+//				
+//			}
+//		} 
+//	}
+	
+//	private void showChannelIds() {
+//		String appId = null;
+//		String channelId = null;
+//		String clientId = null;
+//
+//		SharedPreferences sp = PreferenceManager
+//				.getDefaultSharedPreferences(this);
+//		appId = sp.getString("appid", "");
+//		channelId = sp.getString("channel_id", "");
+//		clientId = sp.getString("user_id", "");
+//		
+//		Resources resource = this.getResources();
+//		String pkgName = this.getPackageName();
+//
+//		String content = "\tApp ID: " + appId + "\n\tChannel ID: " + channelId
+//				+ "\n\tUser ID: " + clientId + "\n\t";
+//		Log.d("bindText", content);
+//		
+//	}
+	
+	
+	private void startPushService()
+	{
+		PushManager.startWork(getApplicationContext(),
+				PushConstants.LOGIN_TYPE_API_KEY, 
+				Utils.getMetaValue(UserLoginActivity.this, "api_key"));
+	}
+	
+
+}

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+     >
+    
+   <RelativeLayout 
+    android:id="@+id/relative_top_bar"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="@drawable/top_bar_background"
+    android:layout_alignParentTop="true"
+    android:gravity="center_vertical"
+     >
+    <TextView
+        android:id="@+id/tv_topbar_center_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:text="医生排班列表"
+        android:textColor="@color/white"
+        android:textSize="@dimen/top_bar_center_text_size" />
+
+      <Button
+            android:id="@+id/ib_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:text="  返回"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:background="@drawable/back_selector" />
+      
+      <Button
+        android:id="@+id/ib_post"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="8dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:text="选择日期"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:background="@drawable/post_selector" />
+</RelativeLayout>
+
+    <com.guangyi.finddoctor.reflashView.PullToRefreshView 
+        android:layout_below="@+id/relative_top_bar"
+    android:id="@+id/main_pull_refresh_view"
+    android:background="@color/main_background"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" 
+    android:orientation="vertical">
+	<!-- 这里放置listview,gridview或者scrollview的布局 ,PullToRefreshView
+	要设置android:orientation="vertical"属性
+	否则,显示不正确-->
+    <ListView
+        android:id="@+id/mlist"
+        android:background="@color/main_background"
+        style="@style/listView_style"
+                android:divider="@drawable/bottom_line"
+                android:drawSelectorOnTop="false"/>
+</com.guangyi.finddoctor.reflashView.PullToRefreshView >
+</RelativeLayout>

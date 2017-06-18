@@ -1,0 +1,55 @@
+8
+
+dir
+325
+svn://218.83.161.124:9999/guangyi/projects/APP/findDoctor_A/alipay_lib/res
+svn://218.83.161.124:9999
+
+
+
+2014-02-25T05:14:16.560102Z
+168
+chhzhao
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+e47c4bb8-8fed-4b2c-bae1-98149401a4f8
+
+values
+dir
+
+drawable
+dir
+
+drawable-hdpi
+dir
+
+values-v11
+dir
+
+drawable-ldpi
+dir
+
+values-v14
+dir
+
+drawable-mdpi
+dir
+
+drawable-xhdpi
+dir
+
+layout
+dir
+

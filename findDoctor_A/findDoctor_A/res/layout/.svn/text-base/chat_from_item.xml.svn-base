@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:orientation="vertical"
+    android:paddingBottom="5dp"
+    android:layout_height="wrap_content" >
+
+    
+    
+    <RelativeLayout
+        android:id="@+id/relative_left_text"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_marginTop="5dp" >
+
+        <ImageView
+            android:id="@+id/iv_user_image1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/mypic"
+            android:scaleType="fitXY"
+            android:focusable="false" />
+             <TextView
+            android:id="@+id/tv_commuser_name_text"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/iv_user_image1"
+            android:gravity="center"
+            android:layout_alignBaseline="@+id/iv_user_image1"
+            android:textColor="@color/black"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/tv_left_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/iv_user_image1"
+            android:background="@drawable/chatto_bg"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="left|center"
+            android:layout_marginRight="5dp"
+            android:lineSpacingExtra="2dp"
+            android:textColor="#ff000000"
+            android:textSize="14sp" />
+        
+    </RelativeLayout>
+    
+       <RelativeLayout
+        android:id="@+id/relative_left_voice"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_marginTop="5dp" >
+
+        <ImageView
+            android:id="@+id/iv_user_image2"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:scaleType="fitXY"
+            android:background="@drawable/mypic"
+            android:focusable="false" />
+             <TextView
+            android:id="@+id/tv_commuser_name_voice"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/iv_user_image2"
+            android:gravity="center"
+            android:layout_alignBaseline="@+id/iv_user_image2"
+             android:textColor="@color/black"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/tv_left_voice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/iv_user_image2"
+            android:background="@drawable/chartto_voice_selector"
+            android:layout_marginRight="5dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="left|center"
+            android:lineSpacingExtra="2dp"
+            android:padding="10dp"
+            android:textColor="#ff000000"
+            android:textSize="14sp" />
+        
+    </RelativeLayout>
+    
+       
+         <RelativeLayout
+        android:id="@+id/relative_left_pic"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_marginTop="5dp" >
+
+        <ImageView
+            android:id="@+id/iv_user_image3"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/mypic"
+            android:scaleType="fitXY"
+            android:focusable="false" />
+        <TextView
+            android:id="@+id/tv_commuser_name_pic"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/iv_user_image3"
+            android:gravity="center"
+            android:layout_alignBaseline="@+id/iv_user_image3"
+             android:textColor="@color/black"
+            android:text="" />
+
+         <LinearLayout
+             android:id="@+id/linear_iv_left_pic"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_centerVertical="true"
+             android:layout_toLeftOf="@+id/iv_user_image3"
+             android:layout_marginRight="5dp"
+             android:background="@drawable/chatto_selector"
+             android:clickable="true"
+             android:gravity="center" >
+
+             <ImageView
+                 android:id="@+id/iv_left_pic"
+                 android:layout_width="60dp"
+                 android:layout_height="40dp"
+                 android:src="@drawable/tupian"
+                 android:scaleType="fitXY" />
+         </LinearLayout>
+        
+    </RelativeLayout>
+    
+         <TextView
+        	android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:textColor="@color/black"
+            android:layout_gravity="right"
+            android:gravity="center"
+            android:textSize="12sp" />
+    
+              
+</LinearLayout>

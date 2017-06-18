@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:gravity="center_horizontal"
+    >
+
+   
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" 
+        android:background="@drawable/local_green_bg"
+       >
+        
+         <TextView
+        android:id="@+id/tv_local_point"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="创建本地密码后，以后每次登录都要
+                    输入本地密码，以保护个人隐私" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/local_white_bg"
+        android:orientation="horizontal" 
+        android:gravity="center_vertical">
+
+        <EditText
+            android:id="@+id/et_local_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:inputType="number"
+            android:maxLength="1"
+            android:paddingLeft="13dp"
+            android:background="@drawable/edit_local_pwd" >
+        </EditText>
+
+        <EditText
+            android:id="@+id/et_local_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="1"
+            android:paddingLeft="13dp"
+             android:layout_marginLeft="15dp"
+            android:background="@drawable/edit_local_pwd"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/et_local_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="1"
+            android:paddingLeft="13dp"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/edit_local_pwd"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/et_local_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLength="1"
+            android:paddingLeft="13dp"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/edit_local_pwd"
+            android:inputType="number" />
+
+    </LinearLayout>
+
+</LinearLayout>

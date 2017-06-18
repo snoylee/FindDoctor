@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.guangyi.finddoctor.slidebutton.SlideButton
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="horizontal" android:layout_width="match_parent"
+	android:layout_height="wrap_content" android:background="@drawable/buttonbg"
+	android:padding="2dp" android:id="@+id/sidebutton">
+
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:orientation="horizontal" android:layout_width="match_parent"
+		android:layout_height="match_parent">
+
+		<TextView  android:id="@+id/textView1"
+			android:layout_width="fill_parent" android:layout_height="fill_parent"
+			android:gravity="center" android:textColor="@color/text_color"
+			android:layout_weight="1">
+		</TextView>
+
+
+		<TextView android:gravity="center" android:id="@+id/textView2"
+			android:layout_width="fill_parent" android:layout_height="fill_parent"
+			android:layout_weight="1" android:textColor="@color/text_color"></TextView>
+		
+
+	</LinearLayout>
+
+	
+	<TextView android:background="@drawable/a0_btnpopwindowedit_normal"
+		android:layout_width="wrap_content" android:id="@+id/indicate"
+		android:gravity="center"
+		android:textColor="@color/white"
+		android:layout_height="match_parent"/>
+
+</com.guangyi.finddoctor.slidebutton.SlideButton>

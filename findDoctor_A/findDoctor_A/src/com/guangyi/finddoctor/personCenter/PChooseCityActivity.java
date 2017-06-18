@@ -1,0 +1,272 @@
+package com.guangyi.finddoctor.personCenter;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.view.ViewGroup.LayoutParams;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.Button;
+import android.widget.ListView;
+
+import com.guangyi.finddoctor.activity.BasicActivity;
+import com.guangyi.finddoctor.activity.R;
+import com.guangyi.finddoctor.adapter.ProvinceAdapter;
+import com.guangyi.finddoctor.application.FindDoctorApplication;
+import com.guangyi.finddoctor.config.ResultCodeCategory;
+import com.guangyi.finddoctor.http.ApiHttpUtil;
+import com.guangyi.finddoctor.model.City;
+import com.guangyi.finddoctor.utils.Config;
+
+/**
+ * <p>
+ * Title: 网络医院运营支撑平台-APP个人版
+ * </p>
+ * <p>
+ * Description:选择城市
+ * </p>
+ * <p>
+ * Copyright: Copyright (c) 2013
+ * </p>
+ * <p>
+ * Company:中国移动有限公司东莞分公司
+ * </p>
+ * 
+ * @author：<a href=”mailto:jomin5120@sina.com”>jomin5120@sina.com</a>
+ * @version：1.0
+ * @since：2013-9-23
+ */
+public class PChooseCityActivity extends BasicActivity {
+	private ListView mListView;
+	private Button mBack;
+	private Handler mHandler;
+	private ApiHttpUtil mApiHttpUtil;
+	private List<City> mListItem;
+	private Runnable mRunnable;
+	private Thread mThread;
+	private String department;
+	private String proviceName;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.choose_city);
+		FindDoctorApplication closeApplication=(FindDoctorApplication) getApplication();
+		closeApplication.addActivity(this);
+		initParams();
+		initView();
+		initListener();
+		getData();
+	}
+
+	private void commonThreadStart() {
+		if (mRunnable != null) {
+			mThread = new Thread(mRunnable);
+			mThread.start();
+		}
+	}
+
+	protected void onStop() {
+		mHandler.removeCallbacks(mRunnable);
+		super.onStop();
+	}
+
+	private void initView() {
+		mListView = (ListView) findViewById(R.id.lv_chose);
+		mBack = (Button) findViewById(R.id.ib_back);
+
+	}
+
+	private void initParams() {
+		
+		mHandler = new MyHandler();
+		department=getIntent().getExtras().getString("department");
+		mApiHttpUtil = new ApiHttpUtil();
+		mListItem = new ArrayList<City>();
+
+	}
+
+	private void bindData(List<City> list) {
+			ProvinceAdapter adapter = new ProvinceAdapter(this, list);
+			
+			View emptyView = LayoutInflater.from(this).inflate(R.layout.empty_view, null);
+			emptyView.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT)); 
+			emptyView.setVisibility(View.GONE);   
+			((ViewGroup)mListView.getParent()).addView(emptyView);   
+			mListView.setEmptyView(emptyView);
+			
+			mListView.setAdapter(adapter);
+
+	}
+
+	// 获取省份信息
+	private void getData() {
+		initProgressDialog();
+		mRunnable = new Runnable() {
+			@Override
+			public void run() {
+				Message msg = new Message();
+				List<String> list = new ArrayList<String>();
+				list.add("-1");
+				msg.arg1 = 1;
+				if(department.length()>0)
+				{
+					list.add(department);
+				}
+					msg.obj = mApiHttpUtil.getMethod(
+							Config.getProperty("REGION_STRING_ONE", ""), list);
+				mHandler.sendMessage(msg);
+			}
+		};
+		commonThreadStart();
+	}
+
+	private void initListener() {
+
+		mBack.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				finish();
+
+			}
+		});
+
+		mListView.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				   proviceName=mListItem.get(position).getRegionName();
+				   int regionType = mListItem.get(position).getRegionType();
+				   if(regionType==1)
+				   {
+					 //城市选择的时候跳转的的用户界面Activity
+					Intent it1 = new Intent(PChooseCityActivity.this,PChooseNextCityActivity.class);
+					it1.putExtra(City.ID, mListItem.get(position).getId());//传到下个界面时 带的数据 其实就是这个界面listView中的一个条目，在列表项中的id
+					it1.putExtra("department", department);
+					startActivityForResult(it1, 0);
+				   }
+				   
+				   else if(regionType==2)
+				   {
+					Intent it2 = new Intent();
+					it2.putExtra(City.ID, mListItem.get(position).getId());
+					it2.putExtra(City.REGIONNAME, mListItem.get(position)
+							.getRegionName());
+					setResult(ResultCodeCategory.RESULT_CODE_CHOSE_CITY, it2);
+					finish();
+				   }
+			}
+		});
+
+	}
+
+	class MyHandler extends Handler {
+		@Override
+		public void handleMessage(Message msg) {
+
+			canclePregressDialog();
+			JSONObject jsonObject = null;
+			String jsonString = msg.obj.toString();
+			Log.i("city  jsonString-------=>", jsonString);
+			if (jsonString.equals(ApiHttpUtil.SOCONNTIMEOUT)) {
+				showToast(getResources().getString(R.string.soconntimeout));
+			} else if (jsonString.equals(ApiHttpUtil.CONNTIMEOUT)) {
+				showToast(getResources().getString(R.string.conntimeout));
+			} else {
+
+				int code = -1;
+				String reason = getResources().getString(
+						R.string.network_preoblem);
+				try {
+					jsonObject = new JSONObject(msg.obj.toString());
+					code = jsonObject.getInt("code");
+					reason = jsonObject.getString("reason");
+				} catch (JSONException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				if (code == 0) {
+					
+					if (msg.arg1 == 1) {
+						JSONArray jsonArray;
+						try {
+							//解析的时候给的一个参数进行的问题调节的
+							
+							jsonArray = jsonObject.getJSONArray("Region");
+							City city;
+							for (int i = 0; i < jsonArray.length(); i++) {
+								city = new City();
+								Log.i("ChooseCityActivity",
+										jsonArray.getJSONObject(i).getString(
+												"regionName"));
+								city.setId(jsonArray.getJSONObject(i).getString(
+										"regionId"));
+								city.setParentId(jsonArray.getJSONObject(i)
+										.getInt("parentId"));
+//								city.setPkId(jsonArray.getJSONObject(i).getInt(
+//										"pkId"));
+								city.setRegionName(jsonArray.getJSONObject(i)
+										.getString("regionName"));
+								city.setRegionType(jsonArray.getJSONObject(i)
+										.getInt("regionType"));
+								mListItem.add(city);
+							}
+							
+						} catch (JSONException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+						
+						finally
+						{
+							bindData(mListItem);
+						}
+
+					}
+
+
+				} else {
+					showToast(reason);
+				}
+
+			}
+
+			super.handleMessage(msg);
+
+		}
+	}
+	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		// TODO Auto-generated method stub
+		super.onActivityResult(requestCode, resultCode, data);
+		if (resultCode == ResultCodeCategory.RESULT_CODE_CHOSE_CITY) {
+			Intent it = new Intent();
+			it.putExtra(City.ID, data.getExtras().getString(City.ID));
+//			it.putExtra(City.REGIONNAME, proviceName+","+data.getExtras().getString(City.REGIONNAME));
+			it.putExtra(City.REGIONNAME, proviceName+","+data.getExtras().getString(City.REGIONNAME));
+			setResult(ResultCodeCategory.RESULT_CODE_CHOSE_CITY, it);
+			finish();
+
+		}
+	}
+
+
+
+
+}

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@color/common_grey" >  
+
+
+   <RelativeLayout
+    android:id="@+id/relative_top_bar"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="@drawable/top_bar_background"
+    android:gravity="center_vertical" >
+
+    <TextView
+        android:id="@+id/tv_topbar_center_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="个人资料"
+        android:textColor="@color/white"
+        android:textSize="@dimen/top_bar_center_text_size" />
+
+     <Button
+            android:id="@+id/ib_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:text="返回"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:background="@drawable/back_selector" />
+
+	<Button
+        android:id="@+id/btn_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="8dp"
+        android:text="确定"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:background="@drawable/post_selector" />
+    
+</RelativeLayout>
+
+
+   <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:gravity="center_horizontal"
+    android:background="@color/main_background"
+    android:orientation="vertical" >
+
+       <EditText
+           android:id="@+id/doctName"
+           android:layout_width="match_parent"
+           android:layout_height="40dp"
+           android:background="@drawable/ic_preference_all_circle2"
+           android:clickable="true"
+           android:drawableLeft="@drawable/patient1"
+           android:ems="10"
+           android:gravity="center_vertical" >
+       </EditText>
+
+    <TextView
+        android:id="@+id/tv_sex"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:paddingRight="15dp"
+        android:background="@drawable/ic_preference_all_circle2"
+        android:clickable="true"
+        android:drawableLeft="@drawable/patient2"
+        android:drawableRight="@drawable/mm_submenu_down"
+        android:gravity="center_vertical" />
+	
+       
+    <LinearLayout 
+         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:background="@drawable/ic_preference_all_circle2"
+        android:orientation="vertical"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/patient4" />
+
+         <EditText
+        	android:id="@+id/expert"
+       		android:layout_width="match_parent"
+        	android:layout_height="wrap_content"
+        	android:layout_marginTop="10dp"
+        	android:background="@color/transparent"
+        	android:gravity="center_vertical"/>
+        
+    </LinearLayout>
+  
+ <LinearLayout 
+         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/ic_preference_all_circle2"
+        android:orientation="vertical"
+        >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/patient5" />
+
+         <EditText
+	        android:id="@+id/introduce"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_marginTop="10dp"
+	        android:background="@color/transparent"
+	        android:gravity="center_vertical"/>
+        
+    </LinearLayout>
+
+
+</LinearLayout>
+
+
+
+</LinearLayout>

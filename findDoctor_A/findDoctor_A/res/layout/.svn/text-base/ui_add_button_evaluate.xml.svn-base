@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/btn_add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/tv_evaluate"
+        android:gravity="center"
+        android:text="若问题解决，请对医生进行评价!" 
+        android:textSize="@dimen/common_text_size_small"
+        android:textColor="@color/white"
+        />
+
+    <TextView
+          android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/common_green"
+        android:text="因不能面诊患者，无法全面了解病情，医生建议仅供参考，不能作为您的诊疗依据。祝您幸福安康！">
+        
+    </TextView>
+</LinearLayout>

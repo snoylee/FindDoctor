@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/main_background"
+    android:orientation="vertical"
+    android:padding="10dp" >
+
+
+
+    <TextView
+        android:id="@+id/tv_discuss_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:visibility="gone"
+        android:textSize="@dimen/common_text_size"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/tv_discuss_question"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:textSize="@dimen/common_text_size"
+        android:textColor="@color/common_grey" />
+    
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="5dp"
+    android:gravity="center_vertical" >
+
+    <LinearLayout
+        android:id="@+id/linearlayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="10dp"
+        android:gravity="center_vertical"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/touxiang"
+            android:scaleType="fitXY" />
+
+        <TextView
+            android:id="@+id/tv_doct_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/common_green" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_discuss_reply"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/linearlayout1"
+        android:background="@drawable/doctor_reply"
+        android:textSize="@dimen/common_text_size"
+        android:gravity="center_vertical" />
+
+</RelativeLayout>
+<TextView
+    android:id="@+id/tv_discuss_time"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textSize="@dimen/common_text_size"
+    android:textColor="@color/black" />
+
+</LinearLayout>

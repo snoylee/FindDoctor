@@ -1,0 +1,190 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_background"
+    android:orientation="vertical" >
+         <RelativeLayout
+            android:id="@+id/search_bar"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:layout_weight="75"
+            android:background="@drawable/top_bar_background"
+            android:orientation="horizontal"
+            >
+            <EditText
+                android:id="@+id/editText1"
+                android:layout_centerVertical="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/iv_search_btn"
+                android:hint="搜索疾病、医生、医院等..."
+                android:singleLine="true"
+                android:textColor="#000"
+                android:textSize="15sp"
+                android:background="@drawable/search_edit_bg" >               
+            </EditText>
+
+            <ImageView
+                android:id="@+id/iv_search_btn"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/search_btn_bg" />
+        </RelativeLayout>
+    <RelativeLayout
+        android:layout_weight="210"
+        android:id="@+id/relative_banner"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp" >
+
+        <com.guangyi.finddoctor.custview.FocusGallery
+            android:id="@+id/focusGallery"
+            android:scaleType="fitXY"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+        <!-- 背景 -->
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/focusGallery"
+            android:gravity="center_horizontal"
+            android:orientation="vertical" >
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+                <!-- 标题 -->
+                <TextView
+                    android:id="@+id/titleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="5dp"
+                    android:textColor="@color/common_green" />
+                <!-- 简介 -->
+                <TextView
+                    android:id="@+id/contentText"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@id/titleText"
+                    android:layout_below="@id/titleText"
+                    android:lines="2"
+                    android:textColor="#ccc"
+                    android:textSize="@dimen/banner_text_size"
+                    android:visibility="gone" />
+            </RelativeLayout>
+            <!-- 指针图 -->
+            <ImageView
+                android:id="@+id/focusPointImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/focus_point_1" />
+        </LinearLayout>
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_weight="480"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/background"
+        android:orientation="vertical" >
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="0dp" >
+    <LinearLayout
+    android:layout_width="0dp"
+    android:layout_weight="1"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center">
+    <Button
+        android:id="@+id/iv_hospital_register_picgrid_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:background="@drawable/hospital_register_selector" />
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_below="@+id/iv_hospital_register_picgrid_item"
+          android:gravity="center"
+          android:layout_centerInParent="true"
+          android:textColor="@color/black"
+          android:text="预约挂号" />
+     </LinearLayout>
+     
+    <LinearLayout
+    android:layout_width="0dp"
+    android:layout_weight="1"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center">
+    <Button
+        android:id="@+id/iv_online_ask_pic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/online_ask_selector"  />
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:gravity="center"
+          android:textColor="@color/black"
+          android:text="在线咨询" />
+     </LinearLayout>
+        </LinearLayout>
+       <LinearLayout
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="0dp" >
+     <LinearLayout
+    android:layout_width="0dp"
+    android:layout_weight="1"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center">
+    <Button
+        android:id="@+id/iv_phone_ask"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/self_service_selector"  />
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:gravity="center"
+          android:textColor="@color/black"
+          android:text="自助服务" />
+     </LinearLayout>
+     
+     <LinearLayout
+    android:layout_width="0dp"
+    android:layout_weight="1"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center">
+    <Button
+        android:id="@+id/iv_person_center_pic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/person_center_selector" />
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:gravity="center"
+          android:textColor="@color/black"
+          android:text="个人中心" />
+     </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

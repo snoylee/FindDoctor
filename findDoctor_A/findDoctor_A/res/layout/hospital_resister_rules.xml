@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>  
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" 
+    android:layout_width="match_parent"  
+    android:layout_height="wrap_content" 
+    android:background="@color/transparent"
+     android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+     >
+
+
+    <LinearLayout android:layout_width="match_parent"
+        android:id="@+id/linear1"
+        android:layout_height="wrap_content"
+        android:background="@drawable/doctor_time_dialog_bg"
+        android:gravity="center"
+        android:orientation="vertical">
+        
+     <TextView
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="@dimen/common_text_size_big"
+        android:text="预约规则" />
+  
+      <ImageView 
+          android:id="@+id/iv_bottom1"
+          android:layout_marginTop="10dp"
+          android:layout_width="match_parent"  
+            android:layout_height="wrap_content"  
+           android:background="@drawable/bottom_line1"/>
+      
+      
+      <TextView
+        android:id="@+id/tv_rule_content"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="@dimen/common_text_size_big" />
+        </LinearLayout>
+        
+      
+
+</ScrollView>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    
+    android:orientation="vertical" >
+
+
+        <TextView
+            android:id="@+id/tv_around_hospital"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:background="@drawable/list_view_item_selector"
+            android:clickable="true"
+            android:drawableRight="@drawable/mm_submenu"
+            android:gravity="left|center_vertical"
+            android:text="周边医院"
+            android:textSize="18sp" />
+        <ImageView 
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bottom_line"
+            />
+
+        <TextView
+            android:id="@+id/tv_around_drugstore"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:clickable="true"
+            android:gravity="left|center_vertical"
+            android:drawableRight="@drawable/mm_submenu"
+            android:background="@drawable/list_view_item_selector"
+            android:text="周边药店"
+            android:textSize="18sp" />
+
+</LinearLayout>

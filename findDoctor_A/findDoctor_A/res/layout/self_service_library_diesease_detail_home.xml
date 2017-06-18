@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+     >  
+
+    
+    <RelativeLayout
+    android:id="@+id/relative_top_bar"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="@drawable/top_bar_background"
+    android:layout_alignParentTop="true"
+    android:gravity="center_vertical" >
+
+    <TextView
+        android:id="@+id/tv_topbar_center_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="疾病详情"
+        android:textColor="@color/white"
+        android:textSize="@dimen/top_bar_center_text_size" />
+
+      <Button
+            android:id="@+id/ib_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:text="  返回"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:background="@drawable/back_selector" />
+    
+</RelativeLayout>
+
+    
+    <RelativeLayout
+        android:id="@+id/main_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/relative_top_bar"
+        android:background="@drawable/navi_top_background"
+        >             
+
+         <LinearLayout
+             android:id="@+id/linear_top_navi"
+             android:layout_width="fill_parent"
+             android:layout_height="fill_parent"
+             android:layout_centerVertical="true"
+             android:gravity="center_vertical" >
+
+             <LinearLayout
+                 
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_weight="1"
+                 android:gravity="center_horizontal"
+                 android:orientation="vertical" >
+
+                 <TextView
+                     android:id="@+id/tv_third"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:clickable="true"
+                     android:text="疾病介绍"
+                     android:textSize="@dimen/common_text_size_slide"
+                     android:textColor="@color/common_grey" />
+             </LinearLayout>
+
+             <LinearLayout
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_weight="1"
+                 android:gravity="center_horizontal"
+                 android:orientation="vertical" >
+
+                 <TextView
+                     android:id="@+id/tv_second"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:clickable="true"
+                     android:text="求医问药"
+                     android:textSize="@dimen/common_text_size_slide"
+                     android:textColor="@color/common_grey" />
+             </LinearLayout>
+         </LinearLayout>
+       
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+    	android:layout_height="match_parent" 
+    	android:layout_below="@id/main_bottom"   
+        android:orientation="vertical" >
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/tabpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+        </android.support.v4.view.ViewPager>
+  
+    </LinearLayout>
+
+   
+
+</RelativeLayout>

@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tv_disease_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/common_text_size"
+                android:padding="10dp" />
+
+            <TextView
+                android:id="@+id/tv_ddisease_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/common_text_size_small"
+                android:padding="10dp"
+                android:text="" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <ToggleButton
+                android:id="@+id/toggle_pathogen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/img1"
+                android:checked="true"
+                android:gravity="left|center_vertical"
+                android:padding="10dp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/common_text_size"
+                android:textOff="病因"
+                android:textOn="病因" />
+
+            <TextView
+                android:id="@+id/tv_pathogen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:textSize="@dimen/common_text_size_small"
+                android:text=""
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <ToggleButton
+                android:id="@+id/toggle_symptom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/img1"
+                android:checked="true"
+                android:gravity="left|center_vertical"
+                android:padding="10dp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/common_text_size"
+                android:textOff="症状"
+                android:textOn="症状" />
+
+            <TextView
+                android:id="@+id/tv_symptom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/common_text_size_small"
+                android:padding="10dp"
+                android:text=""
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <ToggleButton
+                android:id="@+id/toggle_recomm_depart"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/img1"
+                android:gravity="left|center_vertical"
+                android:checked="true"
+                android:padding="10dp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/common_text_size"
+                android:textOff="建议科室"
+                android:textOn="建议科室" />
+
+            <LinearLayout
+                android:id="@+id/linear_recomm_depart"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:visibility="gone"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/inner_btn_hospital_register"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="预约挂号"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/common_text_size"
+                    android:textColor="@color/white"
+					android:background="@drawable/button_middle_selector"/>
+
+                <Button
+                    android:id="@+id/inner_btn_online_ask"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="在线咨询"
+                    android:layout_weight="1"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/common_text_size"
+					android:background="@drawable/button_middle_selector"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <ToggleButton
+                android:id="@+id/toggle_treatment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/img1"
+                android:checked="true"
+                android:gravity="left|center_vertical"
+                android:padding="10dp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/common_text_size"
+                android:textOff="诊治"
+                android:textOn="诊治" />
+
+            <TextView
+                android:id="@+id/tv_treatment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:textSize="@dimen/common_text_size_small"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <ToggleButton
+                android:id="@+id/toggle_drug"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/img1"
+                android:checked="true"
+                android:gravity="left|center_vertical"
+                android:padding="10dp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/common_text_size"
+                android:textOff="用药"
+                android:textOn="用药" />
+
+            <TextView
+                android:id="@+id/tv_drug"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/common_text_size_small"
+                android:padding="10dp"
+                android:visibility="gone" />
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

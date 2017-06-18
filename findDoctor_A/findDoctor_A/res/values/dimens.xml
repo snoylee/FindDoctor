@@ -1,0 +1,27 @@
+<resources>
+
+    <dimen name="top_bar_center_text_size">24sp</dimen>
+    <dimen name="banner_text_size">20sp</dimen>
+    <dimen name="comm_padding_left_right">10dp</dimen>
+    <dimen name="comm_padding_top_bottom">20dp</dimen>
+    <dimen name="comm_padding_textView_text">8dp</dimen>
+    
+     <dimen name="updatebar_height">62.0dip</dimen>
+    <dimen name="updatebar_content_height">60.0dip</dimen>
+    <dimen name="updatebar_padding">10.0dip</dimen>
+    
+     <dimen name="common_text_size">18sp</dimen>
+     <dimen name="common_text_size_small">16sp</dimen>
+     <dimen name="common_text_size_small2">14sp</dimen>
+     <dimen name="common_text_size_small3">12sp</dimen>
+     <dimen name="common_text_size_middle">19sp</dimen>
+     <dimen name="common_text_size_big">20sp</dimen>
+     <dimen name="common_text_size_slide">17sp</dimen>
+    
+     
+<!--      popWindows -->
+     <dimen name="popmenu_width">80.0dip</dimen>
+    <dimen name="popmenu_yoff">0dip</dimen>
+    <dimen name="dip2pix">1.0dip</dimen>
+
+</resources>

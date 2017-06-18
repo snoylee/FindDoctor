@@ -1,0 +1,43 @@
+package com.guangyi.finddoctor.config;
+
+public final class ResultCodeCategory {
+	//启动activity的标志位常量
+	public static String fLAG="flag";
+	//startActivityForResult返回code
+	//登录
+	public static int RESULT_CODE_LOGIN=1;
+	
+	//选择城市
+	//startActivityForResult返回code
+	public static int RESULT_CODE_CHOSE_CITY=2;
+	
+	//选择医院
+	//startActivityForResult返回code
+    public static int RESULT_CODE_CHOSE_HOSPITAL=3;
+    
+    
+  //选择科室
+  	//startActivityForResult返回code
+      public static int RESULT_CODE_CHOSE_DEPARTMENT=4;
+      
+    //根据科室id获取医生列表
+    	//startActivityForResult返回code
+   public static int RESULT_CODE_GET_DOCTOR_BY_DEPARTMENT_ID=5;
+   
+   	//添加问诊人成功有返回数据 code
+   public static int RESULT_CODE_ADD_PATIENT = 6;
+   //添加问诊人不返回数据  code
+   public static int RESULT_CODE_NODATA = 7;
+   
+   //意见反馈打分
+   public static int RESULT_CODE_FRCTION = 8;
+   public static int RESULT_CODE_FRCTION_BACK = 9;
+   
+   //评价
+   public static int RESULT_CODE_EVA = 10;
+   
+   
+ //注册
+   public static int RESULT_CODE_REGISTER= 10;
+
+}

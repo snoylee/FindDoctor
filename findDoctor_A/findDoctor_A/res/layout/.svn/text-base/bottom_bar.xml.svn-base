@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+            <RadioGroup
+                android:id="@+id/radio_group_main"
+                style="@style/tab_bar" >
+
+                <RadioButton
+                    android:text="预约挂号"
+                    android:id="@+id/radio_home"
+                    style="@style/tab_bar_item"
+                    android:drawableTop="@drawable/tab_hospital_register"/>
+
+                <RadioButton
+                    android:id="@+id/radio_message"
+                   style="@style/tab_bar_item"
+                    android:drawableTop="@drawable/tab_online_ask"
+                    android:text="在线咨询" />
+
+                <RadioButton
+                    android:id="@+id/radio_user"
+                    style="@style/tab_bar_item"
+                    android:drawableTop="@drawable/tab_self_service"
+                    android:text="自助服务"  />
+
+                <RadioButton
+                    android:id="@+id/radio_search"
+                    style="@style/tab_bar_item"
+                    android:drawableTop="@drawable/tab_person_center"
+                    android:text="个人中心"  />
+            </RadioGroup>
+
+
+
+</RelativeLayout>

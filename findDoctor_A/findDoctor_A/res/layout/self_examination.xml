@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/common_grey"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/relative_top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/top_bar_background"
+        android:gravity="center_vertical" >
+
+        <TextView
+            android:id="@+id/tv_topbar_center_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="症状自查"
+            android:textColor="@color/white"
+            android:textSize="@dimen/top_bar_center_text_size" />
+
+            <Button
+            android:id="@+id/ib_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:text="  返回"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:background="@drawable/back_selector" />
+
+<Button
+        android:id="@+id/ib_model_change"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="8dp"
+        android:text="文字模式"
+        android:textColor="@color/white"
+        android:padding="5dp"
+        android:gravity="center"
+        android:background="@drawable/post_selector" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/main_background"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        
+        <RelativeLayout
+            android:id="@+id/search_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:background="@drawable/search_bg_self"
+            android:orientation="horizontal"
+            >
+
+            <EditText
+                android:id="@+id/et_diease_search"
+                android:layout_centerVertical="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/iv_search_btn"
+                android:hint="搜索症状"
+                android:singleLine="true"
+                android:textColor="#000"
+                android:textSize="15sp"
+                android:background="@drawable/search_edit_bg" >               
+            </EditText>
+
+            <ImageView
+                android:id="@+id/iv_search_btn"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/search_btn_bg" />
+        </RelativeLayout>
+
+    
+        
+        
+              <RelativeLayout  android:layout_width="fill_parent" android:layout_height="fill_parent">
+                <LinearLayout 
+                    android:layout_width="fill_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    >  
+                <RelativeLayout
+            android:id="@+id/absolute_person_man"
+            android:layout_width="fill_parent" android:layout_height="match_parent"
+            android:clickable="false" >
+
+            <ImageView
+                android:id="@+id/iv_person_man"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentBottom="true" />
+            
+                <ImageView
+                android:id="@+id/iv_part"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+                </RelativeLayout>
+                    </LinearLayout>
+                    
+                
+                
+                <ImageView
+                android:id="@+id/iv_person_direction "
+                android:padding="2.0dip" 
+                android:layout_width="wrap_content" 
+                android:layout_height="wrap_content" 
+                android:layout_marginRight="15dip" 
+                android:layout_marginBottom="12dip"
+                 android:layout_alignParentRight="true" 
+                 android:layout_alignParentBottom="true" 
+                android:src="@drawable/person_back" />
+
+                <ImageView
+                    android:id="@+id/iv_sex_change"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="15dip" 
+                    android:layout_marginBottom="12dip"
+                    android:src="@drawable/sex_change" />
+
+        </RelativeLayout>
+
+       
+    </LinearLayout>
+
+</LinearLayout>
